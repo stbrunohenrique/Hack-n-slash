@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3vv4cyfbhopx"]
+
+[ext_resource type="PackedScene" uid="uid://dxuw7emdcithi" path="res://scenes/player.tscn" id="1_85alj"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="2_4i8sn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_34kfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtyke"]
+size = Vector2(1152, 87)
+
+[node name="Testlevel" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Terrain" type="Node2D" parent="Level"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Terrain"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Terrain/StaticBody2D"]
+modulate = Color(1, 0, 1, 0.333333)
+material = SubResource("CanvasItemMaterial_34kfp")
+position = Vector2(576, 605)
+shape = SubResource("RectangleShape2D_mtyke")
+debug_color = Color(4.33177e-07, 0.488735, 0.571748, 0.42)
+
+[node name="ColorRect" type="ColorRect" parent="Level/Terrain/StaticBody2D"]
+offset_top = 561.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.52549, 0.592157, 1, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_85alj")]
+position = Vector2(516, 453)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(516, 457)
+zoom = Vector2(3, 3)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("2_4i8sn")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxuw7emdcithi"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_3qr73"]
+[ext_resource type="Texture2D" uid="uid://bgswlh44q2sch" path="res://visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster.png" id="1_68hat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbo8a"]
+size = Vector2(15, 24)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_3qr73")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_cbo8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_68hat")
