@@ -1,6 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1742700273
+::res://::1743038687
 icon.svg::CompressedTexture2D::1276624060883974095::1741123935::1741123941::1::::<><>::
+README.md::TextFile::-1::1742700738::0::1::::<><>::
 ::res://addons/::1741365314
 ::res://addons/rmsmartshape/::1741365328
 asset_library_icon-new.png::CompressedTexture2D::2151770384630910896::1741365314::1741365328::1::::<><>::
@@ -103,12 +104,12 @@ tex_metal_edge.png::CompressedTexture2D::4352681250085115025::1741365326::174136
 tex_metal_fill.png::CompressedTexture2D::3083997180510149530::1741365326::1741365328::1::::<><>::
 tex_metal_taper_corner_left.png::CompressedTexture2D::637540740063078413::1741365326::1741365328::1::::<><>::
 tex_metal_taper_corner_right.png::CompressedTexture2D::5010548700008117401::1741365327::1741365328::1::::<><>::
-::res://scenes/::1741893035
+::res://scenes/::1743038663
+player.tscn::PackedScene::8816286157851431554::1743038663::0::1::::<><>::res://scripts/player.gd<>uid://nfiy65i3xstf::::res://visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png<>uid://cgbqeya6e7bph::::res://visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png<>uid://cuunlg61swgke::::res://visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png
+testlevel.tscn::PackedScene::9169228593001614517::1743035546::0::1::::<><>::uid://dxuw7emdcithi::::res://scenes/player.tscn<>res://scripts/camera.gd<>res://scripts/player.gd
+::res://scripts/::1743038663
 camera.gd::GDScript::-1::1741799963::0::1::::<>Camera2D<>::
-player.gd::GDScript::-1::1741893035::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::8816286157851431554::1741882804::0::1::::<><>::res://scenes/player.gd<>uid://bgswlh44q2sch::::res://visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster.png
-testlevel.tscn::PackedScene::9169228593001614517::1741893035::0::1::::<><>::uid://dxuw7emdcithi::::res://scenes/player.tscn<>res://scenes/camera.gd
-::res://scripts/::1741892989
+player.gd::GDScript::-1::1743038663::0::1::::Player<>CharacterBody2D<>::
 UltimatePlatformerController.gd::GDScript::-1::1741892989::0::1::::PlatformerController2D<>CharacterBody2D<>::
 ::res://visual/::1741125955
 ::res://visual/sprites/::1741177319

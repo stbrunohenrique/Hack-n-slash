@@ -1,0 +1,4 @@
+res://scenes/player.tscn
+res://scenes/testlevel.tscn
+res://scripts/player.gd
+res://scripts/Player/collision_shape_2d.gd
