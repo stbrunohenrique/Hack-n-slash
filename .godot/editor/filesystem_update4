@@ -1,4 +1,12 @@
-res://scenes/player.tscn
 res://scenes/testlevel.tscn
-res://scripts/player.gd
-res://scripts/Player/collision_shape_2d.gd
+res://scenes/player.tscn
+res://assets/scenes/player.tscn
+res://assets/scenes/testlevel.tscn
+res://assets/scripts/Player/player.tscn
+res://assets/levels/testlevel.tscn
+res://assets/entities/Player/player.tscn
+res://assets/camera/camera.gd
+res://assets/entities/Player/player.gd
+res://assets/entities/Player/grapple_controller.gd
+res://assets/entities/Grappling Hook/Grapple.tscn
+res://assets/entities/Grappling Hook/grapple.gd

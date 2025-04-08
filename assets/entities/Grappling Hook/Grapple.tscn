@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj4gfqh5oi3pn"]
+
+[ext_resource type="Script" uid="uid://br8o251eyikyj" path="res://assets/entities/Grappling Hook/grapple.gd" id="1_gjyfj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp5cc"]
+radius = 3.0
+height = 6.0
+
+[node name="Chain" type="Node2D"]
+script = ExtResource("1_gjyfj")
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+
+[node name="Tip" type="CharacterBody2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_rp5cc")
