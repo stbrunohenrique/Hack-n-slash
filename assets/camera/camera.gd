@@ -10,18 +10,24 @@ var targetPositionL = Vector2(-100, 0)
 var facingRight: bool = true
 var neutralPositionR = Vector2(20, 0)
 var neutralPositionL = Vector2(-20, 0)
+var mousePos = get_local_mouse_position()
+
+signal send_mouse_pos(pos: Vector2)
 
 
 func _ready():
 	self.offset = neutralPositionR
 
+
 func _process(delta):
-	pass
 	position = get_node("../Player").position
+	mousePos = get_local_mouse_position()
 	if facingRight:
 		self.offset = lerp(offset, neutralPositionR, 0.02)
 	elif !facingRight:
 		self.offset = lerp(offset, neutralPositionL, 0.02)
+	
+	emit_signal("send_mouse_pos", mousePos)
 
 
 func _on_player_max_velocity_reached(wasReached: bool) -> void:

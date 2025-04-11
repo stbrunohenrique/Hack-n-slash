@@ -5,13 +5,13 @@ var direction := Vector2.ZERO
 var tip := Vector2.ZERO
 var playerPos := Vector2.ZERO
 
-const SPEED = 50
+const SPEED = 25
 
 var flying = false
 var hooked = false
 
 func shoot(dir: Vector2):
-	direction = dir.normalized()
+	direction = dir
 	flying = true
 	tip = self.global_position
 

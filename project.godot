@@ -16,6 +16,10 @@ run/main_scene="res://assets/levels/testlevel.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="uid://da6ihc1rawpw1"
 
+[display]
+
+window/stretch/aspect="expand"
+
 [input]
 
 up={
@@ -71,4 +75,5 @@ jump={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

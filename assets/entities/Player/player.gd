@@ -33,6 +33,8 @@ class_name Player
 @export var anim: AnimatedSprite2D
 @export var col: CollisionShape2D
 
+var mousePos: Vector2
+
 
 #INFO Its all mine, don't touch
 var appliedGravity: float
@@ -59,6 +61,7 @@ var wasMoveL: bool = false
 var wasMoveR: bool = true
 var wasWallJumping: bool = false
 var facingRight = true
+var isHooked = false
 
 #INFO Pode fazer algo
 var canMove = true
@@ -86,11 +89,14 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if facingRight:
-				$Chain.shoot(event.position - get_viewport().size * 0.5 + Vector2(20, 0))
+				$Chain.shoot(mousePos)
+				isHooked = true
 			else:
-				$Chain.shoot(event.position - get_viewport().size * 0.5 + Vector2(-20, 0))
+				$Chain.shoot(mousePos)
+				isHooked = true
 		else:
 			$Chain.release()
+			isHooked = false
 
 
 func _ready() -> void:
@@ -133,6 +139,11 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	emit_signal("current_position", global_position)
+	if isHooked:
+		maxSpeed = 500
+	elif !runHold:
+		maxSpeed = maxSpeedLock/2
+
 
 func player_movement(delta):
 	#INFO Get player input
@@ -289,7 +300,7 @@ func hookPhysics(delta):
 	if $Chain.hooked:
 		chainVelocity = to_local($Chain.tip).normalized() * 40
 		if chainVelocity.y > 0:
-			chainVelocity.y *= 0.3
+			chainVelocity.y *= 0.2
 		if sign(chainVelocity.x) == sign(velocity.x):
 			chainVelocity.x *= 0.95
 		else:
@@ -297,3 +308,7 @@ func hookPhysics(delta):
 	else:
 		chainVelocity = Vector2.ZERO
 	velocity += chainVelocity
+
+
+func _on_camera_2d_send_mouse_pos(pos: Vector2) -> void:
+	mousePos = pos
