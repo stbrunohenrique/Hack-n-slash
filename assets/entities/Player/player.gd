@@ -58,6 +58,7 @@ var wasRunning: bool = false
 var wasMoveL: bool = false
 var wasMoveR: bool = true
 var wasWallJumping: bool = false
+var facingRight = true
 
 #INFO Pode fazer algo
 var canMove = true
@@ -84,7 +85,10 @@ signal current_position(pos: Vector2)
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
-			$Chain.shoot(event.position - get_viewport().size * 0.5 + Vector2(20, 0))
+			if facingRight:
+				$Chain.shoot(event.position - get_viewport().size * 0.5 + Vector2(20, 0))
+			else:
+				$Chain.shoot(event.position - get_viewport().size * 0.5 + Vector2(-20, 0))
 		else:
 			$Chain.release()
 
@@ -107,9 +111,11 @@ func _process(delta: float) -> void:
 	if velocity.x > 0:
 		anim.scale.x = animScaleLock.x
 		emit_signal("facing_direction_changed", true)
+		facingRight = true
 	elif velocity.x < 0:
 		anim.scale.x = animScaleLock.x * -1
 		emit_signal("facing_direction_changed", false)
+		facingRight = false
 	
 	#INFO Handling animations - run
 	if abs(velocity.x) > 20 and is_on_floor():
@@ -281,13 +287,13 @@ func wall_sliding(delta):
 
 func hookPhysics(delta):
 	if $Chain.hooked:
-		chainVelocity = to_local($Chain.tip).normalized() * 20
+		chainVelocity = to_local($Chain.tip).normalized() * 40
 		if chainVelocity.y > 0:
-			chainVelocity.y *= 0.33
+			chainVelocity.y *= 0.3
+		if sign(chainVelocity.x) == sign(velocity.x):
+			chainVelocity.x *= 0.95
 		else:
-			chainVelocity.y *= 0.55
-		if sign(chainVelocity.x) != sign(velocity.x):
-			chainVelocity *= 0.7
+			chainVelocity.x *= 0.75
 	else:
 		chainVelocity = Vector2.ZERO
 	velocity += chainVelocity
