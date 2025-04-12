@@ -196,6 +196,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim", "col")]
+collision_mask = 7
 script = ExtResource("1_t3jm7")
 maxSpeed = 260.0
 timeToReachZeroSpeed = 0.15

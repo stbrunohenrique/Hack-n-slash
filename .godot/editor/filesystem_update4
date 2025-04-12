@@ -1,8 +1,7 @@
 res://assets/levels/testlevel.tscn
+res://assets/entities/Player/player.gd
 res://assets/entities/Player/player.tscn
 res://assets/entities/Grappling Hook/Grapple.tscn
 res://assets/ui/HUD.tscn
-res://assets/levels/00/mouse_position.gd
-res://assets/entities/Player/player.gd
 res://assets/entities/Grappling Hook/grapple.gd
-res://assets/camera/camera.gd
+res://assets/stuffs/box.tscn

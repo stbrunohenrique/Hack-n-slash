@@ -5,7 +5,7 @@ var direction := Vector2.ZERO
 var tip := Vector2.ZERO
 var playerPos := Vector2.ZERO
 
-const SPEED = 25
+const SPEED = 5
 
 var flying = false
 var hooked = false
@@ -38,3 +38,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_player_current_position(pos: Vector2) -> void:
 	playerPos = pos
+
+func on_Hook_body_entered(body):
+	if body.is_in_group("canthook"):
+		hooked = false
+		flying = false
+		release()
+	else:
+		return

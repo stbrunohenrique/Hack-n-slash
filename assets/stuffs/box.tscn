@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvgts4rvi1s15"]
+
+[ext_resource type="Texture2D" uid="uid://ctrwlbkl13b4v" path="res://assets/visual/sprites/Items/Boxes/Box1/Break.png" id="1_mtbj0"]
+[ext_resource type="Texture2D" uid="uid://c5vioymt3gcns" path="res://assets/visual/sprites/Items/Boxes/Box1/Idle.png" id="1_opren"]
+[ext_resource type="Texture2D" uid="uid://c4tb7m8hmgmm1" path="res://assets/visual/sprites/Items/Boxes/Box1/Hit (28x24).png" id="2_eydph"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mtbj0"]
+friction = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m5av"]
+atlas = ExtResource("1_mtbj0")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsq0u"]
+atlas = ExtResource("1_mtbj0")
+region = Rect2(28, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvu3n"]
+atlas = ExtResource("1_mtbj0")
+region = Rect2(56, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cy8f"]
+atlas = ExtResource("1_mtbj0")
+region = Rect2(84, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbkji"]
+atlas = ExtResource("2_eydph")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgpjn"]
+atlas = ExtResource("2_eydph")
+region = Rect2(28, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw71a"]
+atlas = ExtResource("2_eydph")
+region = Rect2(56, 0, 28, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6x10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0m5av")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsq0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvu3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cy8f")
+}],
+"loop": true,
+"name": &"break",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbkji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgpjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw71a")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_opren")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvfwe"]
+size = Vector2(18, 18)
+
+[node name="Box" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+mass = 4.0
+physics_material_override = SubResource("PhysicsMaterial_mtbj0")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c6x10")
+animation = &"idle"
+frame_progress = 0.408136
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wvfwe")

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1744398732
+::res://::1744479428
 milk-tea-svgrepo-com.svg::CompressedTexture2D/CompressedTexture2D::7223756143939522322::1743101002::1743101065::1::::<><><>0<>0<>b97dfa4092dbe96a9db6cae1b065092d<>res://.godot/imported/milk-tea-svgrepo-com.svg-65978ef9a511df980cf82eac14f3875c.ctex::
 README.md::TextFile/TextFile::-1::1742700738::0::1::::<><><>0<>0<><>::
 ::res://addons/::1741365314
@@ -91,22 +91,24 @@ shape_closed.gd::GDScript/GDScript::6055010338577380149::1741365325::0::1::::SS2
 shape_open.gd::GDScript/GDScript::5187235124740688585::1741365325::0::1::::SS2D_Shape_Open<>SS2D_Shape<>res://addons/rmsmartshape/assets/open_shape.png<>0<>1<><>::
 shape_render.gd::GDScript/GDScript::8540626316967968655::1741365325::0::1::::SS2D_Shape_Render<>Node2D<><>0<>1<><>::
 ::res://assets/::1744342905
-::res://assets/camera/::1744062520
-camera.gd::GDScript/GDScript::3068776804361356008::1744062520::0::1::::<>Camera2D<><>0<>0<><>::
+::res://assets/camera/::1744402326
+camera.gd::GDScript/GDScript::3068776804361356008::1744402326::0::1::::<>Camera2D<><>0<>0<><>::
 ::res://assets/entities/::1744070197
-::res://assets/entities/Grappling Hook/::1744255240
-grapple.gd::GDScript/GDScript::3648655361837346593::1744074014::0::1::::<>Node2D<><>0<>0<><>::
-Grapple.tscn::PackedScene/PackedScene::7851202682184803355::1744255240::0::1::::<><><>0<>0<><>::uid://br8o251eyikyj::::res://assets/entities/Grappling Hook/grapple.gd
-::res://assets/entities/Player/::1744255239
+::res://assets/entities/Grappling Hook/::1744472518
+grapple.gd::GDScript/GDScript::3648655361837346593::1744423189::0::1::::<>Node2D<><>0<>0<><>::
+Grapple.tscn::PackedScene::7851202682184803355::1744472518::0::1::::<><><>0<>0<><>::uid://br8o251eyikyj::::res://assets/entities/Grappling Hook/grapple.gd
+::res://assets/entities/Player/::1744472853
 collision_shape_2d.gd::GDScript/GDScript::3830810949837203544::1743988237::0::1::::<>CollisionShape2D<><>0<>0<><>::
-player.gd::GDScript/GDScript::5427332582536608134::1744255239::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene/PackedScene::8816286157851431554::1744255239::0::1::::<><><>0<>0<><>::uid://cjlbm0e4j5xpm::::res://assets/entities/Player/player.gd<>uid://nfiy65i3xstf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png<>uid://butw5qse2kkya::::res://assets/entities/Player/collision_shape_2d.gd<>uid://cgbqeya6e7bph::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png<>uid://dwpvpfx0qwdlf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Run_6.png<>uid://cuunlg61swgke::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png<>uid://dj4gfqh5oi3pn::::res://assets/entities/Grappling Hook/Grapple.tscn
-::res://assets/levels/::1744255320
-testlevel.tscn::PackedScene/PackedScene::9169228593001614517::1744255320::0::1::::<><><>0<>0<><>::uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png<>uid://dxuw7emdcithi::::res://assets/entities/Player/player.tscn<>uid://bjysknj35prw7::::res://assets/camera/camera.gd
+player.gd::GDScript::5427332582536608134::1744472853::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::8816286157851431554::1744472517::0::1::::<><><>0<>0<><>::uid://cjlbm0e4j5xpm::::res://assets/entities/Player/player.gd<>uid://nfiy65i3xstf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png<>uid://butw5qse2kkya::::res://assets/entities/Player/collision_shape_2d.gd<>uid://cgbqeya6e7bph::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png<>uid://dwpvpfx0qwdlf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Run_6.png<>uid://cuunlg61swgke::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png<>uid://dj4gfqh5oi3pn::::res://assets/entities/Grappling Hook/Grapple.tscn
+::res://assets/levels/::1744472518
+testlevel.tscn::PackedScene::9169228593001614517::1744472518::0::1::::<><><>0<>0<><>::uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png<>uid://dxuw7emdcithi::::res://assets/entities/Player/player.tscn<>uid://bjysknj35prw7::::res://assets/camera/camera.gd<>uid://de0ue7b5nh8v::::res://assets/levels/00/mouse_position.gd
+::res://assets/levels/00/::1744400648
+mouse_position.gd::GDScript/GDScript::220377942240783355::1744400648::0::1::::<>Marker2D<><>0<>0<><>::
 ::res://assets/scripts/::1744060036
 UltimatePlatformerController.gd::GDScript/GDScript::3925920232091420465::1741892989::0::1::::PlatformerController2D<>CharacterBody2D<><>0<>0<><>::
-::res://assets/ui/::1744342935
-HUD.tscn::PackedScene::2953764649155634025::1744342935::0::1::::<><><>0<>0<><>::
+::res://assets/ui/::1744472518
+HUD.tscn::PackedScene::2953764649155634025::1744472518::0::1::::<><><>0<>0<><>::
 ::res://assets/visual/::1741125955
 ::res://assets/visual/sprites/::1743986098
 ::res://assets/visual/sprites/Items/::1743986099

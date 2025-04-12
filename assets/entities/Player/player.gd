@@ -60,6 +60,7 @@ var wasRunning: bool = false
 var wasMoveL: bool = false
 var wasMoveR: bool = true
 var wasWallJumping: bool = false
+var wasHooking: bool = false
 var facingRight = true
 var isHooked = false
 
@@ -85,18 +86,17 @@ signal max_velocity_reached(wasReached: bool)
 signal current_position(pos: Vector2)
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			if facingRight:
-				$Chain.shoot(mousePos)
-				isHooked = true
-			else:
-				$Chain.shoot(mousePos)
-				isHooked = true
+func hook_shot():
+	if hookTap:
+		if facingRight:
+			$Chain.shoot(mousePos)
+			isHooked = true
 		else:
-			$Chain.release()
-			isHooked = false
+			$Chain.shoot(mousePos)
+			isHooked = true
+	elif hookRelease:
+		$Chain.release()
+		isHooked = false
 
 
 func _ready() -> void:
@@ -138,12 +138,15 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
+	hook_shot()
 	emit_signal("current_position", global_position)
-	if isHooked:
-		maxSpeed = 500
-	elif !runHold:
-		maxSpeed = maxSpeedLock/2
+	respawn()
 
+func respawn():
+	if position.x < 254:
+		input_pause(1)
+		await get_tree().create_timer(1)
+		position = $"../Level/Marker2D".position
 
 func player_movement(delta):
 	#INFO Get player input
@@ -169,6 +172,8 @@ func player_movement(delta):
 	
 	#INFO Hook
 	hookPhysics(delta)
+	if isHooked:
+		maxSpeed = maxSpeedLock
 
 	#INFO Running handling
 	if !runHold and is_on_floor() or is_on_wall():
@@ -177,7 +182,7 @@ func player_movement(delta):
 
 	elif is_on_floor():
 		wasRunning = true
-		maxSpeed = maxSpeedLock
+		maxSpeed = lerpf(maxSpeed, maxSpeedLock, 0.7)
 		emit_signal("max_velocity_reached", true)
 		if runRelease:
 			wasRunning = false
@@ -185,7 +190,7 @@ func player_movement(delta):
 	if runRelease and !is_on_floor():
 		wasRunning = false
 	
-	if !is_on_floor() and !is_on_wall() and wasWallJumping:
+	if !is_on_floor() and !is_on_wall() and wasWallJumping and wasHooking:
 		maxSpeed = maxSpeedLock
 		emit_signal("max_velocity_reached", true)
 
@@ -198,6 +203,7 @@ func jump_handling():
 	if is_on_floor():
 		coyoteTimer = coyoteTime
 		jumpCount = jumps
+		wasHooking = false
 	if not is_on_floor():
 		if coyoteTimer > 0:
 			coyoteTimer -= 1
@@ -232,6 +238,11 @@ func jump_handling():
 		jumpBufferTimer = 0
 		coyoteTimer = 0
 
+	if velocity.y < -450:
+		velocity.y = -450
+	elif velocity.y > 600:
+		velocity.y = 600
+
 func wall_jump(delta):
 	if !is_on_wall(): return
 	if is_on_floor(): return
@@ -251,7 +262,7 @@ func wall_jump(delta):
 
 func horizontal_movement(delta):
 	if rightHold and leftHold and canMove:
-		velocity.x = lerp(velocity.x, 0.0, timeToReachZeroSpeed)
+		velocity.x = lerpf(velocity.x, 0.0, timeToReachZeroSpeed)
 		wasMoveR = true
 		wasMoveL = false
 	elif rightHold and canMove:
@@ -298,6 +309,7 @@ func wall_sliding(delta):
 
 func hookPhysics(delta):
 	if $Chain.hooked:
+		wasHooking = true
 		chainVelocity = to_local($Chain.tip).normalized() * 40
 		if chainVelocity.y > 0:
 			chainVelocity.y *= 0.2
@@ -307,7 +319,8 @@ func hookPhysics(delta):
 			chainVelocity.x *= 0.75
 	else:
 		chainVelocity = Vector2.ZERO
-	velocity += chainVelocity
+	if $Chain.hooked:
+		velocity += chainVelocity
 
 
 func _on_camera_2d_send_mouse_pos(pos: Vector2) -> void:
