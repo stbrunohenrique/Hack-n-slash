@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvgts4rvi1s15"]
+[gd_scene load_steps=15 format=3 uid="uid://dvgts4rvi1s15"]
 
+[ext_resource type="Script" uid="uid://c14hojqk25eij" path="res://assets/stuffs/box.gd" id="1_eydph"]
 [ext_resource type="Texture2D" uid="uid://ctrwlbkl13b4v" path="res://assets/visual/sprites/Items/Boxes/Box1/Break.png" id="1_mtbj0"]
 [ext_resource type="Texture2D" uid="uid://c5vioymt3gcns" path="res://assets/visual/sprites/Items/Boxes/Box1/Idle.png" id="1_opren"]
 [ext_resource type="Texture2D" uid="uid://c4tb7m8hmgmm1" path="res://assets/visual/sprites/Items/Boxes/Box1/Hit (28x24).png" id="2_eydph"]
@@ -85,6 +86,7 @@ collision_layer = 4
 collision_mask = 5
 mass = 4.0
 physics_material_override = SubResource("PhysicsMaterial_mtbj0")
+script = ExtResource("1_eydph")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c6x10")

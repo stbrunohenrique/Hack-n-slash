@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://d3vv4cyfbhopx"]
+[gd_scene load_steps=9 format=4 uid="uid://d3vv4cyfbhopx"]
 
 [ext_resource type="PackedScene" uid="uid://dvgts4rvi1s15" path="res://assets/stuffs/box.tscn" id="1_f2ovr"]
 [ext_resource type="Texture2D" uid="uid://cfw4587vjjkmd" path="res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png" id="1_f7che"]
+[ext_resource type="PackedScene" uid="uid://b75fn5nj0xbo6" path="res://assets/stuffs/cherry.tscn" id="2_1x0l4"]
 [ext_resource type="PackedScene" uid="uid://dxuw7emdcithi" path="res://assets/entities/Player/player.tscn" id="2_cvbjm"]
 [ext_resource type="Script" uid="uid://bjysknj35prw7" path="res://assets/camera/camera.gd" id="3_f2ovr"]
 [ext_resource type="Script" uid="uid://de0ue7b5nh8v" path="res://assets/levels/00/mouse_position.gd" id="4_cvbjm"]
@@ -394,7 +395,23 @@ sources/0 = SubResource("TileSetAtlasSource_6kl7x")
 [node name="Items" type="Node2D" parent="Level"]
 
 [node name="Box" parent="Level/Items" instance=ExtResource("1_f2ovr")]
-position = Vector2(680, 440)
+position = Vector2(616, 472)
+
+[node name="Cherries" type="Node2D" parent="Level/Items"]
+metadata/_edit_group_ = true
+
+[node name="Cherry" parent="Level/Items/Cherries" instance=ExtResource("2_1x0l4")]
+position = Vector2(728, 437)
+frame_progress = 0.0
+
+[node name="Cherry2" parent="Level/Items/Cherries" instance=ExtResource("2_1x0l4")]
+position = Vector2(752, 437)
+
+[node name="Cherry3" parent="Level/Items/Cherries" instance=ExtResource("2_1x0l4")]
+position = Vector2(776, 437)
+
+[node name="Cherry4" parent="Level/Items/Cherries" instance=ExtResource("2_1x0l4")]
+position = Vector2(704, 437)
 
 [node name="TestGround" type="TileMapLayer" parent="Level"]
 texture_filter = 1
@@ -427,6 +444,8 @@ Player = NodePath("../Player")
 [node name="MousePosition" type="Marker2D" parent="."]
 script = ExtResource("4_cvbjm")
 
+[connection signal="break_crate" from="Level/Items/Box" to="Player" method="_on_box_break_crate"]
+[connection signal="get_cherry" from="Level/Items/Cherries/Cherry" to="Player" method="_on_cherry_get_cherry"]
 [connection signal="facing_direction_changed" from="Player" to="Camera2D" method="_on_player_facing_direction_changed"]
 [connection signal="max_velocity_reached" from="Player" to="Camera2D" method="_on_player_max_velocity_reached"]
 [connection signal="send_mouse_pos" from="Camera2D" to="Player" method="_on_camera_2d_send_mouse_pos"]

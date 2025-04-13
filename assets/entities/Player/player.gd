@@ -33,7 +33,16 @@ class_name Player
 @export var anim: AnimatedSprite2D
 @export var col: CollisionShape2D
 
+@export_category("Extras")
+@export var canHook: bool
+
 var mousePos: Vector2
+
+#INFO Player stats
+var cherryCount: int = 0
+var maxHP: int = 3
+var hp: int = 3
+var lifeCount: int = 3
 
 
 #INFO Its all mine, don't touch
@@ -55,18 +64,23 @@ var colScaleLock: Vector2
 
 var chainVelocity = Vector2.ZERO
 
+
 #INFO Estava em ação
 var wasRunning: bool = false
 var wasMoveL: bool = false
 var wasMoveR: bool = true
 var wasWallJumping: bool = false
 var wasHooking: bool = false
-var facingRight = true
-var isHooked = false
+var facingRight: bool = true
+var isHooked: bool = false
+var isAttacking: bool = false
+var comboRequested: bool = false
+
 
 #INFO Pode fazer algo
-var canMove = true
-var canWallSlide = false
+var canMove: bool = true
+var canWallSlide: bool = false
+
 
 #INFO Input
 var leftHold
@@ -79,25 +93,28 @@ var runHold
 var runRelease
 var hookTap
 var hookRelease
+var attackTap
+
 
 #INFO Signals
 signal facing_direction_changed(facing_right: bool)
 signal max_velocity_reached(wasReached: bool)
 signal current_position(pos: Vector2)
+signal hit
 
 
 func hook_shot():
-	if hookTap:
-		if facingRight:
-			$Chain.shoot(mousePos)
-			isHooked = true
-		else:
-			$Chain.shoot(mousePos)
-			isHooked = true
-	elif hookRelease:
-		$Chain.release()
-		isHooked = false
-
+	if canHook:
+		if hookTap:
+			if facingRight:
+				$Chain.shoot(mousePos)
+				isHooked = true
+			else:
+				$Chain.shoot(mousePos)
+				isHooked = true
+		elif hookRelease:
+			$Chain.release()
+			isHooked = false
 
 func _ready() -> void:
 	_updateData()
@@ -113,6 +130,8 @@ func _updateData() -> void:
 	animScaleLock.x = anim.scale.x
 
 func _process(delta: float) -> void:
+	if attackTap and !isAttacking:
+		handlingAttack()
 	#INFO Handling animation scale
 	if velocity.x > 0:
 		anim.scale.x = animScaleLock.x
@@ -123,18 +142,24 @@ func _process(delta: float) -> void:
 		emit_signal("facing_direction_changed", false)
 		facingRight = false
 	
-	#INFO Handling animations - run
-	if abs(velocity.x) > 20 and is_on_floor():
-		if abs(velocity.x) < (maxSpeedLock):
-			anim.play("walk")
-		else:
-			anim.play("run")
-	elif abs(velocity.x) < 15 and is_on_floor():
-		anim.play("idle")
+		#INFO Handling animations - run
+	if !isAttacking:
+		if abs(velocity.x) > 20 and is_on_floor():
+			if abs(velocity.x) < (maxSpeedLock):
+				anim.play("walk")
+			else:
+				anim.play("run")
+		elif abs(velocity.x) < 15 and is_on_floor():
+			anim.play("idle")
 	
-	#INFO Handling animations - jump
-	if velocity.y < 0:
-		anim.play("jump")
+		#INFO Handling animations - jump
+		if velocity.y < 0:
+			anim.play("jump")
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("attack"):
+		if isAttacking:
+			comboRequested = true
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
@@ -160,6 +185,7 @@ func player_movement(delta):
 	runRelease = Input.is_action_just_released("run")
 	hookTap = Input.is_action_just_pressed("hook")
 	hookRelease = Input.is_action_just_released("hook")
+	attackTap = Input.is_action_just_pressed("attack")
 	
 	#INFO Jump and gravity
 	jump_handling()
@@ -306,7 +332,6 @@ func wall_sliding(delta):
 		velocity.y += (60*delta)
 		velocity.y = min(velocity.y, 60)
 
-
 func hookPhysics(delta):
 	if $Chain.hooked:
 		wasHooking = true
@@ -322,6 +347,42 @@ func hookPhysics(delta):
 	if $Chain.hooked:
 		velocity += chainVelocity
 
-
 func _on_camera_2d_send_mouse_pos(pos: Vector2) -> void:
 	mousePos = pos
+
+func _on_cherry_get_cherry(amount: int) -> void:
+	cherryCount += amount
+
+func _on_box_break_crate(amount: int) -> void:
+	cherryCount += amount
+
+func hitbox_control():
+	if facingRight:
+		$hitbox/Right.disabled = false
+		$hitbox/Left.disabled = true
+	elif !facingRight:
+		$hitbox/Right.disabled = true
+		$hitbox/Left.disabled = false
+
+func handlingAttack():
+	$Timers/attackcombo.start(2)
+	isAttacking = true
+	comboRequested = false
+	
+	#INFO Ataca parado
+	if abs(velocity.x) < 50:
+		$AnimatedSprite2D.play("attack1")
+		await $AnimatedSprite2D.animation_finished
+		if comboRequested and $Timers/attackcombo.time_left > 0:
+			$AnimatedSprite2D.play("attack2")
+			await $AnimatedSprite2D.animation_finished
+
+	#INFO Ataca andando
+	else:
+		$AnimatedSprite2D.play("attackwalk")
+		await $AnimatedSprite2D.animation_finished
+		if comboRequested and $Timers/attackcombo.time_left > 0:
+			$AnimatedSprite2D.play("attack2")
+			await $AnimatedSprite2D.animation_finished
+
+	isAttacking = false
