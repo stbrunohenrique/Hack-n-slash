@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://l51rhf0klnd2"]
+
+[ext_resource type="FontFile" uid="uid://cq7bj1k7bpe5n" path="res://assets/visual/fontes/poco/Poco.ttf" id="1_13fh4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwh3h"]
+bg_color = Color(0.53576, 0.00375632, 0.962977, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.252752, 0.000785061, 0.475307, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy3nu"]
+bg_color = Color(8.18223e-07, 0.207849, 0.54903, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1.08294e-07, 0.0957897, 0.291516, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3025"]
+bg_color = Color(2.11775e-06, 0.366414, 0.913414, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1.08294e-07, 0.0957897, 0.291516, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw3ui"]
+bg_color = Color(0.53576, 0.00375632, 0.962977, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.252752, 0.000785061, 0.475307, 1)
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 26
+Button/fonts/font = ExtResource("1_13fh4")
+Button/styles/focus = SubResource("StyleBoxFlat_wwh3h")
+Button/styles/hover = SubResource("StyleBoxFlat_vy3nu")
+Button/styles/normal = SubResource("StyleBoxFlat_s3025")
+Button/styles/pressed = SubResource("StyleBoxFlat_uw3ui")
