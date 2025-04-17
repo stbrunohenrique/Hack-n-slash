@@ -1,9 +1,7 @@
-res://assets/stuffs/cherry.tscn
-res://assets/levels/testlevel.tscn
 res://assets/entities/Player/player.tscn
+res://assets/levels/testlevel.tscn
 res://assets/entities/Grappling Hook/Grapple.tscn
 res://assets/ui/HUD.tscn
 res://assets/stuffs/box.tscn
-res://assets/stuffs/cherry.gd
+res://assets/stuffs/cherry.tscn
 res://assets/entities/Player/player.gd
-res://assets/stuffs/box.gd

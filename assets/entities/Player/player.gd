@@ -137,10 +137,14 @@ func _process(delta: float) -> void:
 		anim.scale.x = animScaleLock.x
 		emit_signal("facing_direction_changed", true)
 		facingRight = true
+		$hitbox/Right.disabled = false
+		$hitbox/Left.disabled = true
 	elif velocity.x < 0:
 		anim.scale.x = animScaleLock.x * -1
 		emit_signal("facing_direction_changed", false)
 		facingRight = false
+		$hitbox/Right.disabled = true
+		$hitbox/Left.disabled = false
 	
 		#INFO Handling animations - run
 	if !isAttacking:
