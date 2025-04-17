@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dj4gfqh5oi3pn"]
 
-[ext_resource type="Script" uid="uid://br8o251eyikyj" path="res://assets/entities/Grappling Hook/grapple.gd" id="1_gjyfj"]
+[ext_resource type="Script" path="res://assets/entities/Grappling Hook/grapple.gd" id="1_gjyfj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp5cc"]
 radius = 3.0

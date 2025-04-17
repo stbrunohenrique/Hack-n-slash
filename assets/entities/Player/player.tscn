@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://dxuw7emdcithi"]
 
-[ext_resource type="Script" uid="uid://cjlbm0e4j5xpm" path="res://assets/entities/Player/player.gd" id="1_t3jm7"]
+[ext_resource type="Script" path="res://assets/entities/Player/player.gd" id="1_t3jm7"]
 [ext_resource type="Texture2D" uid="uid://nfiy65i3xstf" path="res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png" id="2_psy0b"]
-[ext_resource type="Script" uid="uid://butw5qse2kkya" path="res://assets/entities/Player/collision_shape_2d.gd" id="2_tuyoq"]
+[ext_resource type="Script" path="res://assets/entities/Player/collision_shape_2d.gd" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://cgbqeya6e7bph" path="res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png" id="3_gvjeo"]
 [ext_resource type="Texture2D" uid="uid://dwpvpfx0qwdlf" path="res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Run_6.png" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cuunlg61swgke" path="res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png" id="4_ua2jd"]

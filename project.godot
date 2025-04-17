@@ -12,8 +12,8 @@ config_version=5
 
 config/name="Platform hack and slash"
 config/tags=PackedStringArray("2d", "platformer")
-run/main_scene="res://assets/levels/testlevel.tscn"
-config/features=PackedStringArray("4.4", "Mobile")
+run/main_scene="res://assets/entities/Menu/menu.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="uid://da6ihc1rawpw1"
 
 [input]
