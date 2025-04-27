@@ -166,3 +166,4 @@ tile_set = SubResource("TileSet_pgsfo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 8)
 shape = SubResource("RectangleShape2D_1dufe")
+one_way_collision = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d3vv4cyfbhopx"]
+[gd_scene load_steps=18 format=4 uid="uid://d3vv4cyfbhopx"]
 
 [ext_resource type="PackedScene" uid="uid://dvgts4rvi1s15" path="res://assets/stuffs/box.tscn" id="1_f2ovr"]
 [ext_resource type="Texture2D" uid="uid://cfw4587vjjkmd" path="res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png" id="1_f7che"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://de0ue7b5nh8v" path="res://assets/levels/00/mouse_position.gd" id="4_cvbjm"]
 [ext_resource type="PackedScene" uid="uid://bm5qxw2cpfx3y" path="res://assets/entities/Platforms/platform.tscn" id="4_orrwl"]
 [ext_resource type="Script" uid="uid://dolk1ghkmgd68" path="res://assets/entities/Platforms/platform.gd" id="5_xqu7u"]
+[ext_resource type="Texture2D" uid="uid://cdv7xafepxeb2" path="res://assets/visual/sprites/Tilesets/Background/Green.png" id="9_x4tki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kl7x"]
 texture = ExtResource("1_f7che")
@@ -438,6 +439,21 @@ terrain_set_0/terrain_2/name = "Corruption"
 terrain_set_0/terrain_2/color = Color(0.779261, 0.274798, 0.347872, 1)
 sources/0 = SubResource("TileSetAtlasSource_6kl7x")
 
+[sub_resource type="Animation" id="Animation_xqu7u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1024, 496)]
+}
+
 [sub_resource type="Animation" id="Animation_orrwl"]
 resource_name = "default"
 length = 12.0
@@ -454,7 +470,13 @@ tracks/0/keys = {
 "values": [Vector2(1024, 496), Vector2(1024, 496), Vector2(1024, 960), Vector2(1024, 960), Vector2(1024, 960), Vector2(1024, 496), Vector2(1024, 496)]
 }
 
-[sub_resource type="Animation" id="Animation_xqu7u"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4tki"]
+_data = {
+&"RESET": SubResource("Animation_xqu7u"),
+&"default": SubResource("Animation_orrwl")
+}
+
+[sub_resource type="Animation" id="Animation_aoqmy"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -466,13 +488,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1024, 496)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4tki"]
-_data = {
-&"RESET": SubResource("Animation_xqu7u"),
-&"default": SubResource("Animation_orrwl")
+"values": [Vector2(1360, 496)]
 }
 
 [sub_resource type="Animation" id="Animation_x4tki"]
@@ -489,21 +505,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, -2, 1, -2, 1, 1),
 "update": 0,
 "values": [Vector2(1360, 496), Vector2(1360, 496), Vector2(1360, 960), Vector2(1360, 960), Vector2(1360, 496), Vector2(1360, 496)]
-}
-
-[sub_resource type="Animation" id="Animation_aoqmy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1360, 496)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ot6a7"]
@@ -628,6 +629,18 @@ Player = NodePath("../Player")
 
 [node name="MousePosition" type="Marker2D" parent="."]
 script = ExtResource("4_cvbjm")
+
+[node name="ParallaxBG" type="ParallaxBackground" parent="."]
+scroll_limit_end = Vector2(5000, 3000)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBG"]
+motion_mirroring = Vector2(640, 640)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/ParallaxLayer"]
+texture_filter = 4
+scale = Vector2(10, 10)
+texture = ExtResource("9_x4tki")
+centered = false
 
 [connection signal="break_crate" from="Level/Items/Box" to="Player" method="_on_box_break_crate"]
 [connection signal="get_cherry" from="Level/Items/Cherries/Cherry" to="Player" method="_on_cherry_get_cherry"]
