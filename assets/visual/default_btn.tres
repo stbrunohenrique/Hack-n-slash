@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://l51rhf0klnd2"]
 
-[ext_resource type="FontFile" uid="uid://cq7bj1k7bpe5n" path="res://assets/visual/fontes/poco/Poco.ttf" id="1_13fh4"]
+[ext_resource type="FontFile" uid="uid://bnn4go02amy2f" path="res://assets/visual/sprites/Tiny Monsters/Font/Planes_ValMore.ttf" id="1_x2t0r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwh3h"]
 bg_color = Color(0.53576, 0.00375632, 0.962977, 1)
@@ -36,8 +36,8 @@ border_color = Color(0.252752, 0.000785061, 0.475307, 1)
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 28
-Button/fonts/font = ExtResource("1_13fh4")
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_x2t0r")
 Button/styles/focus = SubResource("StyleBoxFlat_wwh3h")
 Button/styles/hover = SubResource("StyleBoxFlat_vy3nu")
 Button/styles/normal = SubResource("StyleBoxFlat_s3025")

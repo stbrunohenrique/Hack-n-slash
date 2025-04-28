@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgklacjryx61c"]
+[gd_scene load_steps=10 format=3 uid="uid://dgklacjryx61c"]
 
 [ext_resource type="Script" uid="uid://p6jt5ijnh8eh" path="res://assets/Menu/menu.gd" id="1_ptfku"]
 [ext_resource type="Texture2D" uid="uid://b2jbvn308183c" path="res://assets/visual/montain_background/m7/PRE_ORIG_SIZE.png" id="2_ynopv"]
+[ext_resource type="Texture2D" uid="uid://cskh8rwb5eg8q" path="res://assets/visual/sprites/logo sem fundo.png" id="3_kxtdo"]
 [ext_resource type="Theme" uid="uid://l51rhf0klnd2" path="res://assets/visual/default_btn.tres" id="6_jwtcb"]
 [ext_resource type="Texture2D" uid="uid://ciu4xtci6psvo" path="res://assets/visual/sprites/personagem.png" id="7_ab2q2"]
 
@@ -136,6 +137,8 @@ size_flags_vertical = 4
 
 [node name="game_logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+texture = ExtResource("3_kxtdo")
+expand_mode = 4
 
 [node name="start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
