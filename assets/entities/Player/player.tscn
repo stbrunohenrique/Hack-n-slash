@@ -349,7 +349,7 @@ facing_left_position = Vector2(1.5, 4)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qf7ud")
-animation = &"attackwalk"
+animation = &"jump"
 
 [node name="Chain" parent="." instance=ExtResource("7_dadyc")]
 

@@ -1,6 +1,6 @@
-res://assets/levels/testlevel.tscn
-res://assets/visual/default_btn.tres
 res://assets/entities/Player/player.tscn
+res://assets/visual/default_btn.tres
+res://assets/levels/testlevel.tscn
 res://assets/entities/Grappling Hook/Grapple.tscn
 res://assets/ui/HUD.tscn
 res://assets/stuffs/box.tscn
@@ -8,3 +8,4 @@ res://assets/stuffs/cherry.tscn
 res://assets/entities/menu/menu.tscn
 res://assets/entities/Enemy/inimigo.tscn
 res://assets/entities/Platforms/platform.tscn
+res://assets/entities/Player/player.gd

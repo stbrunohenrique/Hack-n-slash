@@ -514,6 +514,7 @@ _data = {
 }
 
 [node name="Testlevel" type="Node2D"]
+position = Vector2(0, -64)
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -618,29 +619,27 @@ jumpBufferTime = 10.0
 texture_filter = 1
 position = Vector2(516, 457)
 zoom = Vector2(3, 3)
-process_callback = 0
 limit_left = 250
 limit_smoothed = true
 position_smoothing_enabled = true
-editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_f2ovr")
 Player = NodePath("../Player")
 
-[node name="MousePosition" type="Marker2D" parent="."]
-script = ExtResource("4_cvbjm")
+[node name="ParallaxBG" type="ParallaxBackground" parent="Camera2D"]
 
-[node name="ParallaxBG" type="ParallaxBackground" parent="."]
-scroll_limit_end = Vector2(5000, 3000)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBG"]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(256, 0)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBG"]
-motion_mirroring = Vector2(640, 640)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/ParallaxLayer"]
-texture_filter = 4
-scale = Vector2(10, 10)
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBG/ParallaxLayer"]
+texture_filter = 6
+scale = Vector2(4, 4)
 texture = ExtResource("9_x4tki")
 centered = false
+
+[node name="MousePosition" type="Marker2D" parent="."]
+script = ExtResource("4_cvbjm")
 
 [connection signal="break_crate" from="Level/Items/Box" to="Player" method="_on_box_break_crate"]
 [connection signal="get_cherry" from="Level/Items/Cherries/Cherry" to="Player" method="_on_cherry_get_cherry"]

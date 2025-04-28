@@ -157,7 +157,7 @@ func _process(delta: float) -> void:
 			anim.play("idle")
 	
 		#INFO Handling animations - jump
-		if velocity.y < 0:
+		if abs(velocity.y) > 0 or !is_on_floor():
 			anim.play("jump")
 
 func _input(event: InputEvent) -> void:
@@ -179,17 +179,7 @@ func respawn():
 
 func player_movement(delta):
 	#INFO Get player input
-	leftHold = Input.is_action_pressed("left")
-	leftTap = Input.is_action_just_pressed("left")
-	rightHold = Input.is_action_pressed("right")
-	rightTap = Input.is_action_just_pressed("right")
-	jumpTap = Input.is_action_just_pressed("jump")
-	jumpRelease = Input.is_action_just_released("jump")
-	runHold = Input.is_action_pressed("run")
-	runRelease = Input.is_action_just_released("run")
-	hookTap = Input.is_action_just_pressed("hook")
-	hookRelease = Input.is_action_just_released("hook")
-	attackTap = Input.is_action_just_pressed("attack")
+	get_input()
 	
 	#INFO Jump and gravity
 	jump_handling()
@@ -206,42 +196,43 @@ func player_movement(delta):
 		maxSpeed = maxSpeedLock
 
 	#INFO Running handling
-	if !runHold and is_on_floor() or is_on_wall():
-		maxSpeed = maxSpeedLock / 2
-		emit_signal("max_velocity_reached", false)
+	running_handling()
 
-	elif is_on_floor():
-		wasRunning = true
-		maxSpeed = lerpf(maxSpeed, maxSpeedLock, 0.7)
-		emit_signal("max_velocity_reached", true)
-		if runRelease:
-			wasRunning = false
-
-	if runRelease and !is_on_floor():
-		wasRunning = false
-	
-	if !is_on_floor() and !is_on_wall() and wasWallJumping and wasHooking:
-		maxSpeed = maxSpeedLock
-		emit_signal("max_velocity_reached", true)
+func get_input():
+	leftHold = Input.is_action_pressed("left")
+	leftTap = Input.is_action_just_pressed("left")
+	rightHold = Input.is_action_pressed("right")
+	rightTap = Input.is_action_just_pressed("right")
+	jumpTap = Input.is_action_just_pressed("jump")
+	jumpRelease = Input.is_action_just_released("jump")
+	runHold = Input.is_action_pressed("run")
+	runRelease = Input.is_action_just_released("run")
+	hookTap = Input.is_action_just_pressed("hook")
+	hookRelease = Input.is_action_just_released("hook")
+	attackTap = Input.is_action_just_pressed("attack")
 
 func jump():
 	if jumpCount > 0:
+		isGravityActive = true
 		velocity.y -= jumpStrength
 		jumpCount -= 1
 
 func jump_handling():
 	if is_on_floor():
+		isGravityActive = false
 		coyoteTimer = coyoteTime
 		jumpCount = jumps
 		wasHooking = false
 	if not is_on_floor():
+		isGravityActive = true
 		if coyoteTimer > 0:
 			coyoteTimer -= 1
 
-	if velocity.y > 0:
-		appliedGravity = gravityScale * 1.3
-	else:
-		appliedGravity = gravityScale
+	if isGravityActive:
+		if velocity.y > 0:
+			appliedGravity = gravityScale * 1.3
+		else:
+			appliedGravity = gravityScale
 
 	if isGravityActive:
 		if velocity.y < maxFallSpeed:
@@ -272,6 +263,25 @@ func jump_handling():
 		velocity.y = -450
 	elif velocity.y > 600:
 		velocity.y = 600
+
+func running_handling():
+	if !runHold and is_on_floor() or is_on_wall():
+		maxSpeed = maxSpeedLock / 2
+		emit_signal("max_velocity_reached", false)
+
+	elif is_on_floor():
+		wasRunning = true
+		maxSpeed = lerpf(maxSpeed, maxSpeedLock, 0.7)
+		emit_signal("max_velocity_reached", true)
+		if runRelease:
+			wasRunning = false
+
+	if runRelease and !is_on_floor():
+		wasRunning = false
+	
+	if !is_on_floor() and !is_on_wall() and wasWallJumping and wasHooking:
+		maxSpeed = maxSpeedLock
+		emit_signal("max_velocity_reached", true)
 
 func wall_jump(delta):
 	if !is_on_wall(): return
