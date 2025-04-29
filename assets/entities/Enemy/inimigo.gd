@@ -19,14 +19,24 @@ const gravity = 500
 var knockbackForce = 200
 var isRoaming: bool = true
 
+var targetPos: Vector2
+
+@onready var zone = $Zone
+@onready var rayL = $LeftRay
+@onready var rayR = $LeftRay
 @onready var anim = $AnimatedSprite2D
+
+signal dealing_damage(damage)
 
 
 func _process(delta):
-	gravityHandling(delta)
-	move(delta)
 	handlingAnimation()
+
+func _physics_process(delta: float) -> void:
+	move(delta)
 	move_and_slide()
+	gravityHandling(delta)
+	chase(delta)
 
 func handlingAnimation():
 	if abs(velocity.x) > 0:
@@ -67,7 +77,23 @@ func choose(array):
 
 func dealdamage():
 	dealingDamage = true
-	#PlayerVariables.hp -= damage
+	$AttackTimer.start()
 	dealingDamage = false
 	velocity.x = 0
-	
+
+func chase(delta):
+	if isChasing:
+		pass
+
+func _on_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		isChasing = true
+		targetPos = body.position
+		dealdamage()
+
+func _on_zone_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		isChasing = false
+
+func _on_attack_timer_timeout() -> void:
+	emit_signal("dealing_damage", damage)

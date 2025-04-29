@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1745870122
+::res://::1745900296
 milk-tea-svgrepo-com.svg::CompressedTexture2D/CompressedTexture2D::7223756143939522322::1743101002::1743101065::1::::<><><>0<>0<>b97dfa4092dbe96a9db6cae1b065092d<>res://.godot/imported/milk-tea-svgrepo-com.svg-65978ef9a511df980cf82eac14f3875c.ctex::
 README.md::TextFile/TextFile::-1::1742700738::0::1::::<><><>0<>0<><>::
 ::res://addons/::1741365314
@@ -30,26 +30,26 @@ action_open_shape.gd::GDScript/GDScript::3735550339051578755::1741365314::0::1::
 action_set_pivot.gd::GDScript/GDScript::8573554701244224106::1741365314::0::1::::<>SS2D_Action<><>0<>0<><>::
 action_split_curve.gd::GDScript/GDScript::263107601364773543::1741365314::0::1::::<>SS2D_Action<><>0<>0<><>::
 action_split_shape.gd::GDScript/GDScript::4068470995151320113::1741365314::0::1::::<>SS2D_Action<><>0<>0<><>::
-::res://addons/rmsmartshape/assets/::1744933896
-Anchor.svg::CompressedTexture2D/CompressedTexture2D::4297979011371281991::1741365314::1743038937::1::::<><><>0<>0<>10fdb7368d92de7a026c5c1c7642bd70<>res://.godot/imported/Anchor.svg-1c23ca67e353b480fc5d8186bb0064b9.ctex::
-CenterView.svg::CompressedTexture2D/CompressedTexture2D::4120058092302796968::1741365314::1743038937::1::::<><><>0<>0<>9617955276ef4cf44ce81b0873af2789<>res://.godot/imported/CenterView.svg-f5e9c7178a59ab586ba9d8fac61799bc.ctex::
+::res://addons/rmsmartshape/assets/::1745900278
+Anchor.svg::CompressedTexture2D/CompressedTexture2D::4297979011371281991::1741365314::1745900278::1::::<><><>0<>0<>10fdb7368d92de7a026c5c1c7642bd70<>res://.godot/imported/Anchor.svg-1c23ca67e353b480fc5d8186bb0064b9.ctex::
+CenterView.svg::CompressedTexture2D/CompressedTexture2D::4120058092302796968::1741365314::1745900278::1::::<><><>0<>0<>9617955276ef4cf44ce81b0873af2789<>res://.godot/imported/CenterView.svg-f5e9c7178a59ab586ba9d8fac61799bc.ctex::
 closed_shape.png::CompressedTexture2D/CompressedTexture2D::2353128964106326528::1741365314::1743038937::1::::<><><>0<>0<>48bfff00aa9cf5f44ecf8be4043695aa<>res://.godot/imported/closed_shape.png-c1d349f5c2caecc40ec65e52f86a8145.ctex::
 freehand.png::CompressedTexture2D/CompressedTexture2D::3021202123025315067::1741365314::1743038937::1::::<><><>0<>0<>51e47aafca4206a769d36f69992b0df2<>res://.godot/imported/freehand.png-de4c7fa877a42fa4776ee9cd166cdabd.ctex::
 gui_theme.res::Theme/Theme::8571002037095768222::1741365314::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D/CompressedTexture2D::543504603223893004::1741365314::1743038937::1::::<><><>0<>0<>5c2e6fda66fb9b8f255d4aa09b2cf58f<>res://.godot/imported/icon.png-cf4ff9c0f4595c1f390bb463008250b4.ctex::
-icon_collision_polygon_2d.svg::CompressedTexture2D/CompressedTexture2D::6766562226857840711::1741365314::1743038937::1::::<><><>0<>0<>bd5d805c955c1a080f7ed2a2bd986edf<>res://.godot/imported/icon_collision_polygon_2d.svg-d52c533e615c0baed724848cec175fe6.ctex::
-icon_curve_create.svg::CompressedTexture2D/CompressedTexture2D::1134874462138677359::1741365314::1743038937::1::::<><><>0<>0<>251ea77fbc8fcd0c8f474ee38de59a98<>res://.godot/imported/icon_curve_create.svg-24c8317cfb8ced81d4c832ca7b3310d5.ctex::
-icon_curve_delete.svg::CompressedTexture2D/CompressedTexture2D::5109458930506578148::1741365314::1743038937::1::::<><><>0<>0<>66f3564ae3ef03be1cdf1e48ef3a5212<>res://.godot/imported/icon_curve_delete.svg-9121c11be9a22040b2d567743d44ead0.ctex::
-icon_curve_edit.svg::CompressedTexture2D/CompressedTexture2D::5985885812870712162::1741365314::1743038937::1::::<><><>0<>0<>dcba76cb3163fb7e4f0817796fdad6e0<>res://.godot/imported/icon_curve_edit.svg-bd7d5e1af7c72f4525dff1d79ad0af94.ctex::
-icon_editor_freehand.svg::CompressedTexture2D/CompressedTexture2D::7225033718465756623::1741365314::1743038937::1::::<><><>0<>0<>f8ae14ced5a42541f2008c7b366d7fdd<>res://.godot/imported/icon_editor_freehand.svg-4eb5cac550480a5ffb50b9c62fba3af1.ctex::
-icon_editor_handle.svg::CompressedTexture2D/CompressedTexture2D::4941538518510013899::1741365314::1743038937::1::::<><><>0<>0<>85d6ac1553c638c0f90ce4f039d2f3d8<>res://.godot/imported/icon_editor_handle.svg-ace1b9f89612a442855e8ad0888fdf3e.ctex::
-icon_editor_handle_add.svg::CompressedTexture2D/CompressedTexture2D::5402144024711649820::1741365315::1743038937::1::::<><><>0<>0<>7c9ddad1eceffefda8efa7ce9ec83d8c<>res://.godot/imported/icon_editor_handle_add.svg-7258971e5edcfe4396b7b9c27c0ba1cc.ctex::
-icon_editor_handle_bezier.svg::CompressedTexture2D/CompressedTexture2D::6462136252034667022::1741365315::1743038937::1::::<><><>0<>0<>574a7f68bd9390ba43602f840e7b3fe9<>res://.godot/imported/icon_editor_handle_bezier.svg-b0150f05772e8974a66bc735765e0aeb.ctex::
-icon_editor_handle_control.svg::CompressedTexture2D/CompressedTexture2D::7585629286832972746::1741365315::1743038937::1::::<><><>0<>0<>77dc2b5bfa417e2ef2f75c3abfa09880<>res://.godot/imported/icon_editor_handle_control.svg-8383942d01a7ee5e839992ed99e53aaf.ctex::
-icon_editor_handle_selected.svg::CompressedTexture2D/CompressedTexture2D::7709667212884302868::1741365315::1743038937::1::::<><><>0<>0<>1289004999174ad1328b668e344dbe62<>res://.godot/imported/icon_editor_handle_selected.svg-356ef806610ee2a60b5838a989f58598.ctex::
-icon_editor_position.svg::CompressedTexture2D/CompressedTexture2D::6667158713223738625::1741365315::1743038937::1::::<><><>0<>0<>be593b2f8484bcff3bd9546b22ae7dfe<>res://.godot/imported/icon_editor_position.svg-1f6e1977293add549ed436510f8834c1.ctex::
+icon_collision_polygon_2d.svg::CompressedTexture2D/CompressedTexture2D::6766562226857840711::1741365314::1745900278::1::::<><><>0<>0<>bd5d805c955c1a080f7ed2a2bd986edf<>res://.godot/imported/icon_collision_polygon_2d.svg-d52c533e615c0baed724848cec175fe6.ctex::
+icon_curve_create.svg::CompressedTexture2D/CompressedTexture2D::1134874462138677359::1741365314::1745900278::1::::<><><>0<>0<>251ea77fbc8fcd0c8f474ee38de59a98<>res://.godot/imported/icon_curve_create.svg-24c8317cfb8ced81d4c832ca7b3310d5.ctex::
+icon_curve_delete.svg::CompressedTexture2D/CompressedTexture2D::5109458930506578148::1741365314::1745900278::1::::<><><>0<>0<>66f3564ae3ef03be1cdf1e48ef3a5212<>res://.godot/imported/icon_curve_delete.svg-9121c11be9a22040b2d567743d44ead0.ctex::
+icon_curve_edit.svg::CompressedTexture2D/CompressedTexture2D::5985885812870712162::1741365314::1745900278::1::::<><><>0<>0<>dcba76cb3163fb7e4f0817796fdad6e0<>res://.godot/imported/icon_curve_edit.svg-bd7d5e1af7c72f4525dff1d79ad0af94.ctex::
+icon_editor_freehand.svg::CompressedTexture2D/CompressedTexture2D::7225033718465756623::1741365314::1745900278::1::::<><><>0<>0<>f8ae14ced5a42541f2008c7b366d7fdd<>res://.godot/imported/icon_editor_freehand.svg-4eb5cac550480a5ffb50b9c62fba3af1.ctex::
+icon_editor_handle.svg::CompressedTexture2D/CompressedTexture2D::4941538518510013899::1741365314::1745900278::1::::<><><>0<>0<>85d6ac1553c638c0f90ce4f039d2f3d8<>res://.godot/imported/icon_editor_handle.svg-ace1b9f89612a442855e8ad0888fdf3e.ctex::
+icon_editor_handle_add.svg::CompressedTexture2D/CompressedTexture2D::5402144024711649820::1741365315::1745900278::1::::<><><>0<>0<>7c9ddad1eceffefda8efa7ce9ec83d8c<>res://.godot/imported/icon_editor_handle_add.svg-7258971e5edcfe4396b7b9c27c0ba1cc.ctex::
+icon_editor_handle_bezier.svg::CompressedTexture2D/CompressedTexture2D::6462136252034667022::1741365315::1745900278::1::::<><><>0<>0<>574a7f68bd9390ba43602f840e7b3fe9<>res://.godot/imported/icon_editor_handle_bezier.svg-b0150f05772e8974a66bc735765e0aeb.ctex::
+icon_editor_handle_control.svg::CompressedTexture2D/CompressedTexture2D::7585629286832972746::1741365315::1745900278::1::::<><><>0<>0<>77dc2b5bfa417e2ef2f75c3abfa09880<>res://.godot/imported/icon_editor_handle_control.svg-8383942d01a7ee5e839992ed99e53aaf.ctex::
+icon_editor_handle_selected.svg::CompressedTexture2D/CompressedTexture2D::7709667212884302868::1741365315::1745900278::1::::<><><>0<>0<>1289004999174ad1328b668e344dbe62<>res://.godot/imported/icon_editor_handle_selected.svg-356ef806610ee2a60b5838a989f58598.ctex::
+icon_editor_position.svg::CompressedTexture2D/CompressedTexture2D::6667158713223738625::1741365315::1745900278::1::::<><><>0<>0<>be593b2f8484bcff3bd9546b22ae7dfe<>res://.godot/imported/icon_editor_position.svg-1f6e1977293add549ed436510f8834c1.ctex::
 icon_editor_snap.svg::CompressedTexture2D/CompressedTexture2D::3388686995050990813::1741365316::1743038937::1::::<><><>0<>0<>edfa7cb93d887ce796cc68ed80871c12<>res://.godot/imported/icon_editor_snap.svg-f0374ecd8cb313d78a2acb46b093a7f1.ctex::
-InterpLinear.svg::CompressedTexture2D/CompressedTexture2D::1429457543889945636::1741365314::1743038937::1::::<><><>0<>0<>55127ffd05edca1294df323eca53dc15<>res://.godot/imported/InterpLinear.svg-c9d61ab817f2809471482a31f06cda10.ctex::
+InterpLinear.svg::CompressedTexture2D/CompressedTexture2D::1429457543889945636::1741365314::1745900278::1::::<><><>0<>0<>55127ffd05edca1294df323eca53dc15<>res://.godot/imported/InterpLinear.svg-c9d61ab817f2809471482a31f06cda10.ctex::
 light1-1.png::CompressedTexture2D/CompressedTexture2D::4415174821261479041::1741365316::1743038937::1::::<><><>0<>0<>9c460d4185f06942c5d436f7b527cd02<>res://.godot/imported/light1-1.png-433fe7882cc83fa28e02c4948a40f886.ctex::
 meta_shape.png::CompressedTexture2D/CompressedTexture2D::1006095640010926861::1741365317::1743038937::1::::<><><>0<>0<>9f8defbe738dbbf14dc3b458b5b9f788<>res://.godot/imported/meta_shape.png-462cb0c943fa311edd3a47aeb27824d9.ctex::
 open_shape.png::CompressedTexture2D/CompressedTexture2D::5839997182244067418::1741365317::1743038937::1::::<><><>0<>0<>625e82fa723a867448aaf763a0941d65<>res://.godot/imported/open_shape.png-f18727d78226e221aef881edda953bbd.ctex::
@@ -90,42 +90,48 @@ shape_anchor.gd::GDScript/GDScript::2855636072236804059::1741365325::0::1::::SS2
 shape_closed.gd::GDScript/GDScript::6055010338577380149::1741365325::0::1::::SS2D_Shape_Closed<>SS2D_Shape<>res://addons/rmsmartshape/assets/closed_shape.png<>0<>1<><>::
 shape_open.gd::GDScript/GDScript::5187235124740688585::1741365325::0::1::::SS2D_Shape_Open<>SS2D_Shape<>res://addons/rmsmartshape/assets/open_shape.png<>0<>1<><>::
 shape_render.gd::GDScript/GDScript::8540626316967968655::1741365325::0::1::::SS2D_Shape_Render<>Node2D<><>0<>1<><>::
-::res://assets/::1744934101
-::res://assets/camera/::1744933773
-camera.gd::GDScript/GDScript::3068776804361356008::1744933773::0::1::::<>Camera2D<><>0<>0<><>::
-::res://assets/entities/::1745707518
-::res://assets/entities/Enemy/::1745774323
-inimigo.gd::GDScript/GDScript::65060093339577317::1745706412::0::1::::GroundEnemy<>CharacterBody2D<><>0<>0<><>::
-inimigo.tscn::PackedScene::937425891451860401::1745774323::0::1::::<><><>0<>0<><>::uid://6rsa7h8nf8x::::res://assets/entities/Enemy/inimigo.gd<>uid://coooe1fwb62mx::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Hurt_4.png<>uid://cq4ocwwfeslio::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Idle_4.png<>uid://c0pcxrununxg4::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Jump_8.png<>uid://b2feyobbj4na6::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Walk_6.png
-::res://assets/entities/Grappling Hook/::1745774323
+::res://assets/::1745900267
+::res://assets/camera/::1745900267
+camera.gd::GDScript::3068776804361356008::1745900267::0::1::::<>Camera2D<><>0<>0<><>::
+::res://assets/entities/::1745900267
+::res://assets/entities/Enemy/::1745900267
+inimigo.gd::GDScript::65060093339577317::1745900267::0::1::::GroundEnemy<>CharacterBody2D<><>0<>0<><>::
+inimigo.tscn::PackedScene::937425891451860401::1745900267::0::1::::<><><>0<>0<><>::uid://6rsa7h8nf8x::::res://assets/entities/Enemy/inimigo.gd<>uid://coooe1fwb62mx::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Hurt_4.png<>uid://dlqe5k325uq5y::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Attack1_4.png<>uid://cq4ocwwfeslio::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Idle_4.png<>uid://c0pcxrununxg4::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Jump_8.png<>uid://b2feyobbj4na6::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Walk_6.png
+::res://assets/entities/Grappling Hook/::1745870128
 grapple.gd::GDScript/GDScript::3648655361837346593::1744933773::0::1::::<>Node2D<><>0<>0<><>::
-Grapple.tscn::PackedScene::7851202682184803355::1745774323::0::1::::<><><>0<>0<><>::uid://br8o251eyikyj::::res://assets/entities/Grappling Hook/grapple.gd
-::res://assets/entities/menu/::1745774323
-menu.gd::GDScript/GDScript::1117410336450974267::1744933498::0::1::::<>Control<><>0<>0<><>::
-menu.tscn::PackedScene::7601706897123881354::1745774323::0::1::::<><><>0<>0<><>::uid://p6jt5ijnh8eh::::res://assets/entities/menu/menu.gd<>uid://b2jbvn308183c::::res://assets/visual/montain_background/m7/PRE_ORIG_SIZE.png<>uid://l51rhf0klnd2::::res://assets/visual/default_btn.tres<>uid://ciu4xtci6psvo::::res://assets/visual/sprites/personagem.png
-::res://assets/entities/Platforms/::1745774323
+Grapple.tscn::PackedScene/PackedScene::7851202682184803355::1745870128::0::1::::<><><>0<>0<><>::uid://br8o251eyikyj::::res://assets/entities/Grappling Hook/grapple.gd
+::res://assets/entities/Menu/::1745900267
+menu.gd::GDScript/GDScript::1117410336450974267::1745900267::0::1::::<>Control<><>0<>0<><>::
+menu.tscn::PackedScene/PackedScene::7601706897123881354::1745900267::0::1::::<><><>0<>0<><>::uid://p6jt5ijnh8eh::::res://assets/entities/menu/menu.gd<>uid://b2jbvn308183c::::res://assets/visual/montain_background/m7/PRE_ORIG_SIZE.png<>uid://l51rhf0klnd2::::res://assets/visual/default_btn.tres<>uid://ciu4xtci6psvo::::res://assets/visual/sprites/personagem.png
+::res://assets/entities/Platforms/::1745900267
 platform.gd::GDScript/GDScript::8165267944299968443::1745708455::0::1::::Platform<>StaticBody2D<><>0<>0<><>::
-platform.tscn::PackedScene::3291631882449921348::1745774323::0::1::::<><><>0<>0<><>::uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png
-::res://assets/entities/Player/::1745774323
+platform.tscn::PackedScene::3291631882449921348::1745900267::0::1::::<><><>0<>0<><>::uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png
+::res://assets/entities/Player/::1745900267
 collision_shape_2d.gd::GDScript/GDScript::3830810949837203544::1743988237::0::1::::<>CollisionShape2D<><>0<>0<><>::
-player.gd::GDScript::5427332582536608134::1745774321::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::8816286157851431554::1745774323::0::1::::<><><>0<>0<><>::uid://cjlbm0e4j5xpm::::res://assets/entities/Player/player.gd<>uid://nfiy65i3xstf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png<>uid://butw5qse2kkya::::res://assets/entities/Player/collision_shape_2d.gd<>uid://c0ociu0gampgd::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack1_4.png<>uid://cgbqeya6e7bph::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png<>uid://cjhp00cblsk3::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack2_6.png<>uid://dwpvpfx0qwdlf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Run_6.png<>uid://cuunlg61swgke::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png<>uid://cpse0dx05so6e::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk+Attack_6.png<>uid://dj4gfqh5oi3pn::::res://assets/entities/Grappling Hook/Grapple.tscn
-::res://assets/levels/::1745774323
-testlevel.tscn::PackedScene::9169228593001614517::1745774323::0::1::::<><><>0<>0<><>::uid://dvgts4rvi1s15::::res://assets/stuffs/box.tscn<>uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png<>uid://b75fn5nj0xbo6::::res://assets/stuffs/cherry.tscn<>uid://dxuw7emdcithi::::res://assets/entities/Player/player.tscn<>uid://bjysknj35prw7::::res://assets/camera/camera.gd<>uid://de0ue7b5nh8v::::res://assets/levels/00/mouse_position.gd<>uid://bm5qxw2cpfx3y::::res://assets/entities/Platforms/platform.tscn<>uid://dolk1ghkmgd68::::res://assets/entities/Platforms/platform.gd<>uid://cdv7xafepxeb2::::res://assets/visual/sprites/Tilesets/Background/Green.png
-::res://assets/levels/00/::1744933773
+player.gd::GDScript::5427332582536608134::1745900267::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::8816286157851431554::1745900267::0::1::::<><><>0<>0<><>::uid://cjlbm0e4j5xpm::::res://assets/entities/Player/player.gd<>uid://nfiy65i3xstf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png<>uid://butw5qse2kkya::::res://assets/entities/Player/collision_shape_2d.gd<>uid://c0ociu0gampgd::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack1_4.png<>uid://cgbqeya6e7bph::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png<>uid://cjhp00cblsk3::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack2_6.png<>uid://dwpvpfx0qwdlf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Run_6.png<>uid://cuunlg61swgke::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png<>uid://cpse0dx05so6e::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk+Attack_6.png<>uid://dj4gfqh5oi3pn::::res://assets/entities/Grappling Hook/Grapple.tscn
+::res://assets/levels/::1745900267
+testlevel.gd::GDScript/GDScript::-1::1745900267::0::1::::<>Node2D<><>0<>0<><>::
+testlevel.tscn::PackedScene::9169228593001614517::1745900267::0::1::::<><><>0<>0<><>::uid://dvgts4rvi1s15::::res://assets/stuffs/box.tscn<>uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png<>uid://dlmyjqihh1ade::::res://assets/levels/testlevel.gd<>uid://b75fn5nj0xbo6::::res://assets/stuffs/cherry.tscn<>uid://dxuw7emdcithi::::res://assets/entities/Player/player.tscn<>uid://bjysknj35prw7::::res://assets/camera/camera.gd<>uid://de0ue7b5nh8v::::res://assets/levels/00/mouse_position.gd<>uid://bm5qxw2cpfx3y::::res://assets/entities/Platforms/platform.tscn<>uid://dolk1ghkmgd68::::res://assets/entities/Platforms/platform.gd<>uid://b8jmau6xcr4pl::::res://assets/stuffs/checkpoint.tscn<>uid://badyyox1poo16::::res://assets/stuffs/handlingcheckpoint.gd<>uid://nmdjdg0h4s8p::::res://assets/entities/Enemy/inimigo.tscn<>uid://cdv7xafepxeb2::::res://assets/visual/sprites/Tilesets/Background/Green.png
+::res://assets/levels/00/::1745900267
+main.tscn::PackedScene::2225499817495962153::1745900267::0::1::::<><><>0<>0<><>::uid://d3vv4cyfbhopx::::res://assets/levels/testlevel.tscn<>uid://ns2o2waqvkfs::::res://assets/levels/00/subviewshader.gdshader
 mouse_position.gd::GDScript/GDScript::220377942240783355::1744933773::0::1::::<>Marker2D<><>0<>0<><>::
+subviewshader.gdshader::Shader::951279578925229580::1745900267::0::1::::<><><>0<>0<><>::
 ::res://assets/scripts/::1744060036
 UltimatePlatformerController.gd::GDScript/GDScript::3925920232091420465::1741892989::0::1::::PlatformerController2D<>CharacterBody2D<><>0<>0<><>::
-::res://assets/stuffs/::1745774323
+::res://assets/stuffs/::1745900267
 box.gd::GDScript/GDScript::6658068774825452681::1744933773::0::1::::<>RigidBody2D<><>0<>0<><>::
-box.tscn::PackedScene::8646801351559900298::1745774323::0::1::::<><><>0<>0<><>::uid://c14hojqk25eij::::res://assets/stuffs/box.gd<>uid://ctrwlbkl13b4v::::res://assets/visual/sprites/Items/Boxes/Box1/Break.png<>uid://c5vioymt3gcns::::res://assets/visual/sprites/Items/Boxes/Box1/Idle.png<>uid://c4tb7m8hmgmm1::::res://assets/visual/sprites/Items/Boxes/Box1/Hit (28x24).png
+box.tscn::PackedScene::8646801351559900298::1745900267::0::1::::<><><>0<>0<><>::uid://c14hojqk25eij::::res://assets/stuffs/box.gd<>uid://ctrwlbkl13b4v::::res://assets/visual/sprites/Items/Boxes/Box1/Break.png<>uid://c5vioymt3gcns::::res://assets/visual/sprites/Items/Boxes/Box1/Idle.png<>uid://c4tb7m8hmgmm1::::res://assets/visual/sprites/Items/Boxes/Box1/Hit (28x24).png
+checkpoint.gd::GDScript/GDScript::-1::1745900267::0::1::::Flag<>Area2D<><>0<>0<><>::
+checkpoint.tscn::PackedScene::4721961626852234693::1745900267::0::1::::<><><>0<>0<><>::uid://dh7axfok4goqs::::res://assets/stuffs/checkpoint.gd<>uid://bjcgbndojvfs7::::res://assets/visual/sprites/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png<>uid://bocksgj3nlypa::::res://assets/visual/sprites/Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png<>uid://wjm86o0aguig::::res://assets/visual/sprites/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png
 cherry.gd::GDScript/GDScript::6146231974374081896::1745710812::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
-cherry.tscn::PackedScene::4694723409242721191::1745774323::0::1::::<><><>0<>0<><>::uid://modkxynnpicx::::res://assets/visual/sprites/Items/Fruits/Cherries.png<>uid://cttjspkak7vwi::::res://assets/stuffs/cherry.gd
-::res://assets/ui/::1745774323
-HUD.tscn::PackedScene::2953764649155634025::1745774323::0::1::::<><><>0<>0<><>::
-::res://assets/visual/::1745771396
+cherry.tscn::PackedScene::4694723409242721191::1745899354::0::1::::<><><>0<>0<><>::uid://modkxynnpicx::::res://assets/visual/sprites/Items/Fruits/Cherries.png<>uid://cttjspkak7vwi::::res://assets/stuffs/cherry.gd
+handlingcheckpoint.gd::GDScript/GDScript::-1::1745900267::0::1::::<>Node2D<><>0<>0<><>::
+::res://assets/ui/::1745899354
+HUD.tscn::PackedScene::2953764649155634025::1745899354::0::1::::<><><>0<>0<><>::
+::res://assets/visual/::1745900267
 Background.png::CompressedTexture2D/CompressedTexture2D::2937099385418665811::1744933498::1744934106::1::::<><><>0<>0<>daa12f4eabead86c96bbc8469579a104<>res://.godot/imported/Background.png-ec86030971d8d002d9928eafa15c46fe.ctex::
-default_btn.tres::Theme::835617989485630349::1745771396::0::1::::<><><>0<>0<><>::uid://cq7bj1k7bpe5n::::res://assets/visual/fontes/poco/Poco.ttf
+default_btn.tres::Theme/Theme::835617989485630349::1745900267::0::1::::<><><>0<>0<><>::uid://cq7bj1k7bpe5n::::res://assets/visual/fontes/poco/Poco.ttf
 ::res://assets/visual/fontes/::1744933950
 ::res://assets/visual/fontes/poco/::1744934105
 CC BY 4.0.txt::TextFile/TextFile::-1::1744933498::0::1::::<><><>0<>0<><>::
@@ -197,7 +203,7 @@ parallax-mountain-montain-far.png::CompressedTexture2D/CompressedTexture2D::4230
 parallax-mountain-mountains.png::CompressedTexture2D/CompressedTexture2D::8243037106813395989::1744933498::1744934106::1::::<><><>0<>0<>0ffb6517c1805b58edf067f532c5d395<>res://.godot/imported/parallax-mountain-mountains.png-76bf15915be5ea89096470dad90b660b.ctex::
 parallax-mountain-trees.png::CompressedTexture2D/CompressedTexture2D::5805585820380948045::1744933498::1744934106::1::::<><><>0<>0<>9c4abb8859cb5f09fbec66b90254c7ed<>res://.godot/imported/parallax-mountain-trees.png-5fe666dd12e3848fa7f3efc37112e41d.ctex::
 ::res://assets/visual/PSD/::1744933950
-::res://assets/visual/sprites/::1744934106
+::res://assets/visual/sprites/::1745900267
 personagem.png::CompressedTexture2D/CompressedTexture2D::5377442539060479240::1744933498::1744934106::1::::<><><>0<>0<>980426fb73a12d6e06d971c0e00f1846<>res://.godot/imported/personagem.png-4bcf78fdc5e55b2b2bcd7cc510b67cdf.ctex::
 ::res://assets/visual/sprites/Items/::1743986099
 ::res://assets/visual/sprites/Items/Boxes/::1743986098

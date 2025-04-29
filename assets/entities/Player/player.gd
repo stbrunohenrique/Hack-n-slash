@@ -76,6 +76,7 @@ var facingRight: bool = true
 var isHooked: bool = false
 var isAttacking: bool = false
 var comboRequested: bool = false
+var isOnAir: bool = false
 
 
 #INFO Pode fazer algo
@@ -147,7 +148,7 @@ func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	hook_shot()
 	emit_signal("current_position", global_position)
-	respawn()
+	handlingDamage()
 
 func handlingAnimation():
 	#INFO Handling animation scale
@@ -173,16 +174,12 @@ func handlingAnimation():
 				anim.play("run")
 		elif abs(velocity.x) < 15 and is_on_floor():
 			anim.play("idle")
-	
-		#INFO Handling animations - jump
-		if abs(velocity.y) > 0 or !is_on_floor():
-			anim.play("jump")
 
 func respawn():
-	if position.x < 254:
-		input_pause(1)
-		await get_tree().create_timer(1).timeout
-		position = $"../Level/Marker2D".position
+	input_pause(1)
+	await get_tree().create_timer(1).timeout
+	hp = maxHP
+	position = $"../Level/Marker2D".position
 
 func player_movement(delta):
 	#INFO Get player input
@@ -226,11 +223,13 @@ func jump():
 
 func jump_handling():
 	if is_on_floor():
+		isOnAir = false
 		isGravityActive = false
 		coyoteTimer = coyoteTime
 		jumpCount = jumps
 		wasHooking = false
 	if not is_on_floor():
+		isOnAir = true
 		isGravityActive = true
 		if coyoteTimer > 0:
 			coyoteTimer -= 1
@@ -257,6 +256,8 @@ func jump_handling():
 		jumpBufferTimer = jumpBufferTime
 	elif jumpTap and jumpCount > 0:
 		jump()
+		if is_on_floor() or is_on_wall():
+			anim.play("jump")
 
 	if jumpBufferTimer > 0:
 		jumpBufferTimer -= 1
@@ -415,3 +416,8 @@ func handlingDamage():
 	if hp == 0:
 		isDead = true
 		emit_signal("death")
+		respawn()
+
+func _on_inimigo_dealing_damage(damage: Variant) -> void:
+	hp -= damage
+	print(hp)

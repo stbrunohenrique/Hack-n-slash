@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d3vv4cyfbhopx"]
+[gd_scene load_steps=23 format=4 uid="uid://d3vv4cyfbhopx"]
 
 [ext_resource type="PackedScene" uid="uid://dvgts4rvi1s15" path="res://assets/stuffs/box.tscn" id="1_f2ovr"]
 [ext_resource type="Texture2D" uid="uid://cfw4587vjjkmd" path="res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png" id="1_f7che"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bm5qxw2cpfx3y" path="res://assets/entities/Platforms/platform.tscn" id="4_orrwl"]
 [ext_resource type="Script" uid="uid://dolk1ghkmgd68" path="res://assets/entities/Platforms/platform.gd" id="5_xqu7u"]
 [ext_resource type="PackedScene" uid="uid://b8jmau6xcr4pl" path="res://assets/stuffs/checkpoint.tscn" id="6_aoqmy"]
-[ext_resource type="Script" uid="uid://badyyox1poo16" path="res://assets/stuffs/handlingcheckpoint.gd" id="8_b4jf1"]
+[ext_resource type="Script" path="res://assets/stuffs/handlingcheckpoint.gd" id="8_b4jf1"]
 [ext_resource type="PackedScene" uid="uid://nmdjdg0h4s8p" path="res://assets/entities/Enemy/inimigo.tscn" id="9_tfgd3"]
 [ext_resource type="Texture2D" uid="uid://cdv7xafepxeb2" path="res://assets/visual/sprites/Tilesets/Background/Green.png" id="9_x4tki"]
 
@@ -517,6 +517,9 @@ _data = {
 &"default": SubResource("Animation_x4tki")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfgd3"]
+size = Vector2(128, 16)
+
 [node name="Testlevel" type="Node2D"]
 position = Vector2(0, -64)
 script = ExtResource("1_ot6a7")
@@ -621,8 +624,18 @@ script = ExtResource("8_b4jf1")
 
 [node name="Enemies" type="Node2D" parent="Level"]
 
-[node name="inimigo" parent="Level/Enemies" instance=ExtResource("9_tfgd3")]
-position = Vector2(1285, 963)
+[node name="Inimigo" parent="Level/Enemies" instance=ExtResource("9_tfgd3")]
+position = Vector2(2270, 680)
+
+[node name="Cautious" type="Node2D" parent="Level"]
+
+[node name="01" type="Area2D" parent="Level/Cautious"]
+position = Vector2(1776, 856)
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Level/Cautious/01"]
+shape = SubResource("RectangleShape2D_tfgd3")
+debug_color = Color(0.933615, 0.17746, 0.474389, 0.42)
 
 [node name="Player" parent="." instance=ExtResource("2_cvbjm")]
 position = Vector2(516, 453)
@@ -663,6 +676,8 @@ centered = false
 
 [connection signal="break_crate" from="Level/Items/Box" to="Player" method="_on_box_break_crate"]
 [connection signal="get_cherry" from="Level/Items/Cherries/Cherry" to="Player" method="_on_cherry_get_cherry"]
+[connection signal="dealing_damage" from="Level/Enemies/Inimigo" to="Player" method="_on_inimigo_dealing_damage"]
+[connection signal="body_entered" from="Level/Cautious/01" to="." method="_on__body_entered"]
 [connection signal="death" from="Player" to="Level/Flags/Checkpoint" method="_on_player_death"]
 [connection signal="facing_direction_changed" from="Player" to="Camera2D" method="_on_player_facing_direction_changed"]
 [connection signal="max_velocity_reached" from="Player" to="Camera2D" method="_on_player_max_velocity_reached"]

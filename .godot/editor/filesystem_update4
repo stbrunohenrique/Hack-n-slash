@@ -1,20 +1,13 @@
 res://assets/entities/Player/player.tscn
-res://assets/visual/default_btn.tres
+res://assets/levels/00/subviewshader.gdshader
 res://assets/levels/testlevel.tscn
-res://assets/entities/Grappling Hook/Grapple.tscn
 res://assets/ui/HUD.tscn
 res://assets/stuffs/box.tscn
 res://assets/stuffs/cherry.tscn
-res://assets/entities/menu/menu.tscn
 res://assets/entities/Enemy/inimigo.tscn
-res://assets/entities/Platforms/platform.tscn
 res://assets/levels/00/main.tscn
-res://assets/entities/menu/menu.gd
-res://assets/camera/camera.gd
-res://assets/levels/00/subviewshader.gdshader
 res://assets/stuffs/checkpoint.tscn
-res://assets/stuffs/checkpoint.gd
-res://assets/levels/testlevel.gd
+res://assets/entities/Platforms/platform.tscn
 res://assets/entities/Player/player.gd
-res://assets/stuffs/handlingcheckpoint.gd
 res://assets/entities/Enemy/inimigo.gd
+res://assets/levels/testlevel.gd

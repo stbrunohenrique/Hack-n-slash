@@ -332,12 +332,13 @@ size = Vector2(16, 32)
 size = Vector2(16, 32)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim", "col") groups=["Player"]]
-collision_mask = 7
+collision_mask = 3
 script = ExtResource("1_t3jm7")
 maxSpeed = 260.0
 timeToReachZeroSpeed = 0.15
 anim = NodePath("AnimatedSprite2D")
 col = NodePath("CollisionShape2D")
+canHook = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 4)
