@@ -8,4 +8,13 @@ res://assets/stuffs/cherry.tscn
 res://assets/entities/menu/menu.tscn
 res://assets/entities/Enemy/inimigo.tscn
 res://assets/entities/Platforms/platform.tscn
+res://assets/levels/00/main.tscn
+res://assets/entities/menu/menu.gd
+res://assets/camera/camera.gd
+res://assets/levels/00/subviewshader.gdshader
+res://assets/stuffs/checkpoint.tscn
+res://assets/stuffs/checkpoint.gd
+res://assets/levels/testlevel.gd
 res://assets/entities/Player/player.gd
+res://assets/stuffs/handlingcheckpoint.gd
+res://assets/entities/Enemy/inimigo.gd

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1745771313
+::res://::1745870122
 milk-tea-svgrepo-com.svg::CompressedTexture2D/CompressedTexture2D::7223756143939522322::1743101002::1743101065::1::::<><><>0<>0<>b97dfa4092dbe96a9db6cae1b065092d<>res://.godot/imported/milk-tea-svgrepo-com.svg-65978ef9a511df980cf82eac14f3875c.ctex::
 README.md::TextFile/TextFile::-1::1742700738::0::1::::<><><>0<>0<><>::
 ::res://addons/::1741365314
@@ -94,38 +94,38 @@ shape_render.gd::GDScript/GDScript::8540626316967968655::1741365325::0::1::::SS2
 ::res://assets/camera/::1744933773
 camera.gd::GDScript/GDScript::3068776804361356008::1744933773::0::1::::<>Camera2D<><>0<>0<><>::
 ::res://assets/entities/::1745707518
-::res://assets/entities/Enemy/::1745717928
+::res://assets/entities/Enemy/::1745774323
 inimigo.gd::GDScript/GDScript::65060093339577317::1745706412::0::1::::GroundEnemy<>CharacterBody2D<><>0<>0<><>::
-inimigo.tscn::PackedScene::937425891451860401::1745717928::0::1::::<><><>0<>0<><>::uid://6rsa7h8nf8x::::res://assets/entities/Enemy/inimigo.gd<>uid://coooe1fwb62mx::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Hurt_4.png<>uid://cq4ocwwfeslio::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Idle_4.png<>uid://c0pcxrununxg4::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Jump_8.png<>uid://b2feyobbj4na6::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Walk_6.png
-::res://assets/entities/Grappling Hook/::1745717928
+inimigo.tscn::PackedScene::937425891451860401::1745774323::0::1::::<><><>0<>0<><>::uid://6rsa7h8nf8x::::res://assets/entities/Enemy/inimigo.gd<>uid://coooe1fwb62mx::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Hurt_4.png<>uid://cq4ocwwfeslio::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Idle_4.png<>uid://c0pcxrununxg4::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Jump_8.png<>uid://b2feyobbj4na6::::res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Walk_6.png
+::res://assets/entities/Grappling Hook/::1745774323
 grapple.gd::GDScript/GDScript::3648655361837346593::1744933773::0::1::::<>Node2D<><>0<>0<><>::
-Grapple.tscn::PackedScene::7851202682184803355::1745717928::0::1::::<><><>0<>0<><>::uid://br8o251eyikyj::::res://assets/entities/Grappling Hook/grapple.gd
-::res://assets/entities/menu/::1745717928
+Grapple.tscn::PackedScene::7851202682184803355::1745774323::0::1::::<><><>0<>0<><>::uid://br8o251eyikyj::::res://assets/entities/Grappling Hook/grapple.gd
+::res://assets/entities/menu/::1745774323
 menu.gd::GDScript/GDScript::1117410336450974267::1744933498::0::1::::<>Control<><>0<>0<><>::
-menu.tscn::PackedScene::7601706897123881354::1745717928::0::1::::<><><>0<>0<><>::uid://p6jt5ijnh8eh::::res://assets/entities/menu/menu.gd<>uid://b2jbvn308183c::::res://assets/visual/montain_background/m7/PRE_ORIG_SIZE.png<>uid://l51rhf0klnd2::::res://assets/visual/default_btn.tres<>uid://ciu4xtci6psvo::::res://assets/visual/sprites/personagem.png
-::res://assets/entities/Platforms/::1745717999
+menu.tscn::PackedScene::7601706897123881354::1745774323::0::1::::<><><>0<>0<><>::uid://p6jt5ijnh8eh::::res://assets/entities/menu/menu.gd<>uid://b2jbvn308183c::::res://assets/visual/montain_background/m7/PRE_ORIG_SIZE.png<>uid://l51rhf0klnd2::::res://assets/visual/default_btn.tres<>uid://ciu4xtci6psvo::::res://assets/visual/sprites/personagem.png
+::res://assets/entities/Platforms/::1745774323
 platform.gd::GDScript/GDScript::8165267944299968443::1745708455::0::1::::Platform<>StaticBody2D<><>0<>0<><>::
-platform.tscn::PackedScene::3291631882449921348::1745717999::0::1::::<><><>0<>0<><>::uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png
-::res://assets/entities/Player/::1745717928
+platform.tscn::PackedScene::3291631882449921348::1745774323::0::1::::<><><>0<>0<><>::uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png
+::res://assets/entities/Player/::1745774323
 collision_shape_2d.gd::GDScript/GDScript::3830810949837203544::1743988237::0::1::::<>CollisionShape2D<><>0<>0<><>::
-player.gd::GDScript/GDScript::5427332582536608134::1744933773::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
-player.tscn::PackedScene::8816286157851431554::1745717928::0::1::::<><><>0<>0<><>::uid://cjlbm0e4j5xpm::::res://assets/entities/Player/player.gd<>uid://nfiy65i3xstf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png<>uid://butw5qse2kkya::::res://assets/entities/Player/collision_shape_2d.gd<>uid://c0ociu0gampgd::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack1_4.png<>uid://cgbqeya6e7bph::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png<>uid://cjhp00cblsk3::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack2_6.png<>uid://dwpvpfx0qwdlf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Run_6.png<>uid://cuunlg61swgke::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png<>uid://cpse0dx05so6e::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk+Attack_6.png<>uid://dj4gfqh5oi3pn::::res://assets/entities/Grappling Hook/Grapple.tscn
-::res://assets/levels/::1745717987
-testlevel.tscn::PackedScene::9169228593001614517::1745717987::0::1::::<><><>0<>0<><>::uid://dvgts4rvi1s15::::res://assets/stuffs/box.tscn<>uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png<>uid://b75fn5nj0xbo6::::res://assets/stuffs/cherry.tscn<>uid://dxuw7emdcithi::::res://assets/entities/Player/player.tscn<>uid://bjysknj35prw7::::res://assets/camera/camera.gd<>uid://de0ue7b5nh8v::::res://assets/levels/00/mouse_position.gd<>uid://bm5qxw2cpfx3y::::res://assets/entities/Platforms/platform.tscn<>uid://dolk1ghkmgd68::::res://assets/entities/Platforms/platform.gd<>uid://cdv7xafepxeb2::::res://assets/visual/sprites/Tilesets/Background/Green.png
+player.gd::GDScript::5427332582536608134::1745774321::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+player.tscn::PackedScene::8816286157851431554::1745774323::0::1::::<><><>0<>0<><>::uid://cjlbm0e4j5xpm::::res://assets/entities/Player/player.gd<>uid://nfiy65i3xstf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png<>uid://butw5qse2kkya::::res://assets/entities/Player/collision_shape_2d.gd<>uid://c0ociu0gampgd::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack1_4.png<>uid://cgbqeya6e7bph::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Jump_8.png<>uid://cjhp00cblsk3::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Attack2_6.png<>uid://dwpvpfx0qwdlf::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Run_6.png<>uid://cuunlg61swgke::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk_6.png<>uid://cpse0dx05so6e::::res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Walk+Attack_6.png<>uid://dj4gfqh5oi3pn::::res://assets/entities/Grappling Hook/Grapple.tscn
+::res://assets/levels/::1745774323
+testlevel.tscn::PackedScene::9169228593001614517::1745774323::0::1::::<><><>0<>0<><>::uid://dvgts4rvi1s15::::res://assets/stuffs/box.tscn<>uid://cfw4587vjjkmd::::res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png<>uid://b75fn5nj0xbo6::::res://assets/stuffs/cherry.tscn<>uid://dxuw7emdcithi::::res://assets/entities/Player/player.tscn<>uid://bjysknj35prw7::::res://assets/camera/camera.gd<>uid://de0ue7b5nh8v::::res://assets/levels/00/mouse_position.gd<>uid://bm5qxw2cpfx3y::::res://assets/entities/Platforms/platform.tscn<>uid://dolk1ghkmgd68::::res://assets/entities/Platforms/platform.gd<>uid://cdv7xafepxeb2::::res://assets/visual/sprites/Tilesets/Background/Green.png
 ::res://assets/levels/00/::1744933773
 mouse_position.gd::GDScript/GDScript::220377942240783355::1744933773::0::1::::<>Marker2D<><>0<>0<><>::
 ::res://assets/scripts/::1744060036
 UltimatePlatformerController.gd::GDScript/GDScript::3925920232091420465::1741892989::0::1::::PlatformerController2D<>CharacterBody2D<><>0<>0<><>::
-::res://assets/stuffs/::1745717928
+::res://assets/stuffs/::1745774323
 box.gd::GDScript/GDScript::6658068774825452681::1744933773::0::1::::<>RigidBody2D<><>0<>0<><>::
-box.tscn::PackedScene::8646801351559900298::1745717928::0::1::::<><><>0<>0<><>::uid://c14hojqk25eij::::res://assets/stuffs/box.gd<>uid://ctrwlbkl13b4v::::res://assets/visual/sprites/Items/Boxes/Box1/Break.png<>uid://c5vioymt3gcns::::res://assets/visual/sprites/Items/Boxes/Box1/Idle.png<>uid://c4tb7m8hmgmm1::::res://assets/visual/sprites/Items/Boxes/Box1/Hit (28x24).png
+box.tscn::PackedScene::8646801351559900298::1745774323::0::1::::<><><>0<>0<><>::uid://c14hojqk25eij::::res://assets/stuffs/box.gd<>uid://ctrwlbkl13b4v::::res://assets/visual/sprites/Items/Boxes/Box1/Break.png<>uid://c5vioymt3gcns::::res://assets/visual/sprites/Items/Boxes/Box1/Idle.png<>uid://c4tb7m8hmgmm1::::res://assets/visual/sprites/Items/Boxes/Box1/Hit (28x24).png
 cherry.gd::GDScript/GDScript::6146231974374081896::1745710812::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
-cherry.tscn::PackedScene::4694723409242721191::1745717928::0::1::::<><><>0<>0<><>::uid://modkxynnpicx::::res://assets/visual/sprites/Items/Fruits/Cherries.png<>uid://cttjspkak7vwi::::res://assets/stuffs/cherry.gd
-::res://assets/ui/::1745717928
-HUD.tscn::PackedScene::2953764649155634025::1745717928::0::1::::<><><>0<>0<><>::
-::res://assets/visual/::1745717397
+cherry.tscn::PackedScene::4694723409242721191::1745774323::0::1::::<><><>0<>0<><>::uid://modkxynnpicx::::res://assets/visual/sprites/Items/Fruits/Cherries.png<>uid://cttjspkak7vwi::::res://assets/stuffs/cherry.gd
+::res://assets/ui/::1745774323
+HUD.tscn::PackedScene::2953764649155634025::1745774323::0::1::::<><><>0<>0<><>::
+::res://assets/visual/::1745771396
 Background.png::CompressedTexture2D/CompressedTexture2D::2937099385418665811::1744933498::1744934106::1::::<><><>0<>0<>daa12f4eabead86c96bbc8469579a104<>res://.godot/imported/Background.png-ec86030971d8d002d9928eafa15c46fe.ctex::
-default_btn.tres::Theme::835617989485630349::1745717397::0::1::::<><><>0<>0<><>::uid://cq7bj1k7bpe5n::::res://assets/visual/fontes/poco/Poco.ttf
+default_btn.tres::Theme::835617989485630349::1745771396::0::1::::<><><>0<>0<><>::uid://cq7bj1k7bpe5n::::res://assets/visual/fontes/poco/Poco.ttf
 ::res://assets/visual/fontes/::1744933950
 ::res://assets/visual/fontes/poco/::1744934105
 CC BY 4.0.txt::TextFile/TextFile::-1::1744933498::0::1::::<><><>0<>0<><>::

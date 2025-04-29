@@ -2,6 +2,8 @@ extends Camera2D
 
 @export var Player: Player
 
+var actualCamPos: Vector2
+
 var cameraZoomLock = self.zoom
 var targetZoom = Vector2(2, 2)
 var positionLock = self.offset
@@ -10,7 +12,7 @@ var targetPositionL = Vector2(-100, 0)
 var facingRight: bool = true
 var neutralPositionR = Vector2(20, 0)
 var neutralPositionL = Vector2(-20, 0)
-var mousePos = get_local_mouse_position()
+var mousePos: Vector2
 
 signal send_mouse_pos(pos: Vector2)
 
@@ -20,14 +22,26 @@ func _ready():
 
 
 func _process(delta):
-	position = get_node("../Player").position
+	actualCamPos = actualCamPos.lerp($"../Player".global_position, delta * 5)
 	mousePos = get_local_mouse_position()
-	if facingRight:
-		self.offset = lerp(offset, neutralPositionR, 0.02)
-	elif !facingRight:
-		self.offset = lerp(offset, neutralPositionL, 0.02)
 	
 	emit_signal("send_mouse_pos", mousePos)
+	
+	# Distância entre o pixel perfect mais próximo e a posição atual da câmera
+	var camSubpixelOffset = actualCamPos.round() - actualCamPos
+	
+	# Envia esse valor pro shader
+	get_parent().get_parent().get_parent().material.set_shader_parameter("cam_offset", camSubpixelOffset)
+	
+	# Posição da câmera
+	global_position = actualCamPos.round()
+
+
+func _physics_process(delta):
+	if facingRight:
+		offset = lerp(offset, neutralPositionR, 0.02)
+	elif !facingRight:
+		offset = lerp(offset, neutralPositionL, 0.02)
 
 
 func _on_player_max_velocity_reached(wasReached: bool) -> void:

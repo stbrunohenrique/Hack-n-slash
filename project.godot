@@ -23,6 +23,8 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 Player=""
+Flag=""
+Enemy=""
 
 [input]
 

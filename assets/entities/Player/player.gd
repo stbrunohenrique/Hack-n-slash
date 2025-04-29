@@ -43,6 +43,7 @@ var cherryCount: int = 0
 var maxHP: int = 3
 var hp: int = 3
 var lifeCount: int = 3
+var isDead = false
 
 
 #INFO Its all mine, don't touch
@@ -101,6 +102,7 @@ signal facing_direction_changed(facing_right: bool)
 signal max_velocity_reached(wasReached: bool)
 signal current_position(pos: Vector2)
 signal hit
+signal death()
 
 
 func hook_shot():
@@ -128,10 +130,26 @@ func _updateData() -> void:
 	jumpStrength = jumpStrength * gravityScale
 	
 	animScaleLock.x = anim.scale.x
+	
+	isDead = false
 
 func _process(delta: float) -> void:
 	if attackTap and !isAttacking:
 		handlingAttack()
+	handlingAnimation()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("attack"):
+		if isAttacking:
+			comboRequested = true
+
+func _physics_process(delta: float) -> void:
+	player_movement(delta)
+	hook_shot()
+	emit_signal("current_position", global_position)
+	respawn()
+
+func handlingAnimation():
 	#INFO Handling animation scale
 	if velocity.x > 0:
 		anim.scale.x = animScaleLock.x
@@ -160,21 +178,10 @@ func _process(delta: float) -> void:
 		if abs(velocity.y) > 0 or !is_on_floor():
 			anim.play("jump")
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
-		if isAttacking:
-			comboRequested = true
-
-func _physics_process(delta: float) -> void:
-	player_movement(delta)
-	hook_shot()
-	emit_signal("current_position", global_position)
-	respawn()
-
 func respawn():
 	if position.x < 254:
 		input_pause(1)
-		await get_tree().create_timer(1)
+		await get_tree().create_timer(1).timeout
 		position = $"../Level/Marker2D".position
 
 func player_movement(delta):
@@ -400,3 +407,11 @@ func handlingAttack():
 			await $AnimatedSprite2D.animation_finished
 
 	isAttacking = false
+
+func handlingDamage():
+	if hp < 0:
+		hp = 0
+	
+	if hp == 0:
+		isDead = true
+		emit_signal("death")

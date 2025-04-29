@@ -1,10 +1,27 @@
-[gd_scene load_steps=30 format=3 uid="uid://nmdjdg0h4s8p"]
+[gd_scene load_steps=35 format=3 uid="uid://nmdjdg0h4s8p"]
 
 [ext_resource type="Script" uid="uid://6rsa7h8nf8x" path="res://assets/entities/Enemy/inimigo.gd" id="1_8nda6"]
 [ext_resource type="Texture2D" uid="uid://coooe1fwb62mx" path="res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Hurt_4.png" id="2_bpqnb"]
+[ext_resource type="Texture2D" uid="uid://dlqe5k325uq5y" path="res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Attack1_4.png" id="2_pus7w"]
 [ext_resource type="Texture2D" uid="uid://cq4ocwwfeslio" path="res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Idle_4.png" id="3_pus7w"]
 [ext_resource type="Texture2D" uid="uid://c0pcxrununxg4" path="res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Jump_8.png" id="4_cq1xg"]
 [ext_resource type="Texture2D" uid="uid://b2feyobbj4na6" path="res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster/Owlet_Monster_Walk_6.png" id="5_nobig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq1xg"]
+atlas = ExtResource("2_pus7w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nobig"]
+atlas = ExtResource("2_pus7w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixogg"]
+atlas = ExtResource("2_pus7w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx68f"]
+atlas = ExtResource("2_pus7w")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ndcf"]
 atlas = ExtResource("2_bpqnb")
@@ -98,6 +115,23 @@ region = Rect2(160, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cq1xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nobig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixogg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx68f")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1ndcf")
 }, {
 "duration": 1.0,
@@ -109,7 +143,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ghrb5")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -155,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1falu")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -186,20 +220,29 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx68f"]
 size = Vector2(15, 25)
 
-[node name="inimigo" type="CharacterBody2D"]
+[node name="inimigo" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_8nda6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ixogg")
-animation = &"jump"
-frame = 4
-frame_progress = 0.858247
+animation = &"attack"
+autoplay = "idle"
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." groups=["Enemy"]]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_lx68f")
 
 [node name="DirectionTimer" type="Timer" parent="."]
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+target_position = Vector2(-30, 0)
+
+[node name="RightRay" type="RayCast2D" parent="."]
+target_position = Vector2(30, 0)
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]

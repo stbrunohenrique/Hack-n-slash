@@ -19,10 +19,28 @@ const gravity = 500
 var knockbackForce = 200
 var isRoaming: bool = true
 
+@onready var anim = $AnimatedSprite2D
+
+
 func _process(delta):
 	gravityHandling(delta)
 	move(delta)
+	handlingAnimation()
 	move_and_slide()
+
+func handlingAnimation():
+	if abs(velocity.x) > 0:
+		anim.play("walk")
+	elif abs(velocity.x) < 0.2:
+		anim.play("idle")
+	if takingDamage:
+		anim.play("hurt")
+	if velocity.x > 0:
+		anim.flip_h = false
+	else:
+		anim.flip_h = true
+	if dealingDamage:
+		anim.play("attack")
 
 func move(delta):
 	if !dead:
@@ -46,3 +64,10 @@ func _on_direction_timer_timeout() -> void:
 func choose(array):
 	array.shuffle()
 	return array.front()
+
+func dealdamage():
+	dealingDamage = true
+	#PlayerVariables.hp -= damage
+	dealingDamage = false
+	velocity.x = 0
+	
