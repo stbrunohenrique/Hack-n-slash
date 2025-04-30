@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dxuw7emdcithi"]
+[gd_scene load_steps=55 format=3 uid="uid://dxuw7emdcithi"]
 
 [ext_resource type="Script" uid="uid://cjlbm0e4j5xpm" path="res://assets/entities/Player/player.gd" id="1_t3jm7"]
 [ext_resource type="Texture2D" uid="uid://nfiy65i3xstf" path="res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster/Dude_Monster_Idle_4.png" id="2_psy0b"]
@@ -331,6 +331,9 @@ size = Vector2(16, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhrgk"]
 size = Vector2(16, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii5kg"]
+size = Vector2(21, 27)
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim", "col") groups=["Player"]]
 collision_mask = 3
 script = ExtResource("1_t3jm7")
@@ -370,5 +373,13 @@ disabled = true
 [node name="attackcombo" type="Timer" parent="Timers"]
 one_shot = true
 
+[node name="Collectbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectbox"]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_ii5kg")
+
 [connection signal="current_position" from="." to="Chain" method="_on_player_current_position"]
 [connection signal="facing_direction_changed" from="." to="CollisionShape2D" method="_on_player_facing_direction_changed"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Collectbox" to="." method="_on_collectbox_area_entered"]

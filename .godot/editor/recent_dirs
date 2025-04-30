@@ -1,3 +1,5 @@
+res://assets/visual/sprites/Items/Fruits
+res://assets/visual/fontes/poco
 res://assets/visual/sprites/Tiny Monsters/2 Owlet_Monster
 res://assets/entities/Player
 res://assets/stuffs
@@ -7,7 +9,6 @@ res://assets/entities/Platforms
 res://assets/entities/Enemy
 res://assets/entities/menu
 res://assets/visual/sprites/Tiny Monsters/3 Dude_Monster
-res://assets/visual/sprites/Items/Fruits
 res://assets/visual/sprites/Items/Boxes/Box1
 res://assets/ui
 res://assets/entities/Grappling Hook
