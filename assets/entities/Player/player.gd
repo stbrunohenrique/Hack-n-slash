@@ -43,6 +43,7 @@ var cherryCount: int = 0
 var maxHP: int = 3
 var hp: int = 3
 var lifeCount: int = 3
+var isDead = false
 
 
 #INFO Its all mine, don't touch
@@ -75,6 +76,7 @@ var facingRight: bool = true
 var isHooked: bool = false
 var isAttacking: bool = false
 var comboRequested: bool = false
+var isOnAir: bool = false
 
 
 #INFO Pode fazer algo
@@ -101,6 +103,7 @@ signal facing_direction_changed(facing_right: bool)
 signal max_velocity_reached(wasReached: bool)
 signal current_position(pos: Vector2)
 signal hit
+signal death()
 
 
 func hook_shot():
@@ -117,6 +120,8 @@ func hook_shot():
 			isHooked = false
 
 func _ready() -> void:
+	$hitbox/Right.disabled = true
+	$hitbox/Left.disabled = true
 	_updateData()
 
 func _updateData() -> void:
@@ -128,37 +133,13 @@ func _updateData() -> void:
 	jumpStrength = jumpStrength * gravityScale
 	
 	animScaleLock.x = anim.scale.x
+	
+	isDead = false
 
 func _process(delta: float) -> void:
 	if attackTap and !isAttacking:
 		handlingAttack()
-	#INFO Handling animation scale
-	if velocity.x > 0:
-		anim.scale.x = animScaleLock.x
-		emit_signal("facing_direction_changed", true)
-		facingRight = true
-		$hitbox/Right.disabled = false
-		$hitbox/Left.disabled = true
-	elif velocity.x < 0:
-		anim.scale.x = animScaleLock.x * -1
-		emit_signal("facing_direction_changed", false)
-		facingRight = false
-		$hitbox/Right.disabled = true
-		$hitbox/Left.disabled = false
-	
-		#INFO Handling animations - run
-	if !isAttacking:
-		if abs(velocity.x) > 20 and is_on_floor():
-			if abs(velocity.x) < (maxSpeedLock):
-				anim.play("walk")
-			else:
-				anim.play("run")
-		elif abs(velocity.x) < 15 and is_on_floor():
-			anim.play("idle")
-	
-		#INFO Handling animations - jump
-		if velocity.y < 0:
-			anim.play("jump")
+	handlingAnimation()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
@@ -169,27 +150,40 @@ func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	hook_shot()
 	emit_signal("current_position", global_position)
-	respawn()
+	handlingDamage()
+
+func handlingAnimation():
+	#INFO Handling animation scale
+	if velocity.x > 0:
+		anim.scale.x = animScaleLock.x
+		emit_signal("facing_direction_changed", true)
+		facingRight = true
+		
+	elif velocity.x < 0:
+		anim.scale.x = animScaleLock.x * -1
+		emit_signal("facing_direction_changed", false)
+		facingRight = false
+		
+	
+		#INFO Handling animations - run
+	if !isAttacking:
+		if abs(velocity.x) > 20 and is_on_floor():
+			if abs(velocity.x) < (maxSpeedLock):
+				anim.play("walk")
+			else:
+				anim.play("run")
+		elif abs(velocity.x) < 15 and is_on_floor():
+			anim.play("idle")
 
 func respawn():
-	if position.x < 254:
-		input_pause(1)
-		await get_tree().create_timer(1)
-		position = $"../Level/Marker2D".position
+	input_pause(1)
+	await get_tree().create_timer(1).timeout
+	hp = maxHP
+	position = $"../Level/Marker2D".position
 
 func player_movement(delta):
 	#INFO Get player input
-	leftHold = Input.is_action_pressed("left")
-	leftTap = Input.is_action_just_pressed("left")
-	rightHold = Input.is_action_pressed("right")
-	rightTap = Input.is_action_just_pressed("right")
-	jumpTap = Input.is_action_just_pressed("jump")
-	jumpRelease = Input.is_action_just_released("jump")
-	runHold = Input.is_action_pressed("run")
-	runRelease = Input.is_action_just_released("run")
-	hookTap = Input.is_action_just_pressed("hook")
-	hookRelease = Input.is_action_just_released("hook")
-	attackTap = Input.is_action_just_pressed("attack")
+	get_input()
 	
 	#INFO Jump and gravity
 	jump_handling()
@@ -206,42 +200,45 @@ func player_movement(delta):
 		maxSpeed = maxSpeedLock
 
 	#INFO Running handling
-	if !runHold and is_on_floor() or is_on_wall():
-		maxSpeed = maxSpeedLock / 2
-		emit_signal("max_velocity_reached", false)
+	running_handling()
 
-	elif is_on_floor():
-		wasRunning = true
-		maxSpeed = lerpf(maxSpeed, maxSpeedLock, 0.7)
-		emit_signal("max_velocity_reached", true)
-		if runRelease:
-			wasRunning = false
-
-	if runRelease and !is_on_floor():
-		wasRunning = false
-	
-	if !is_on_floor() and !is_on_wall() and wasWallJumping and wasHooking:
-		maxSpeed = maxSpeedLock
-		emit_signal("max_velocity_reached", true)
+func get_input():
+	leftHold = Input.is_action_pressed("left")
+	leftTap = Input.is_action_just_pressed("left")
+	rightHold = Input.is_action_pressed("right")
+	rightTap = Input.is_action_just_pressed("right")
+	jumpTap = Input.is_action_just_pressed("jump")
+	jumpRelease = Input.is_action_just_released("jump")
+	runHold = Input.is_action_pressed("run")
+	runRelease = Input.is_action_just_released("run")
+	hookTap = Input.is_action_just_pressed("hook")
+	hookRelease = Input.is_action_just_released("hook")
+	attackTap = Input.is_action_just_pressed("attack")
 
 func jump():
 	if jumpCount > 0:
+		isGravityActive = true
 		velocity.y -= jumpStrength
 		jumpCount -= 1
 
 func jump_handling():
 	if is_on_floor():
+		isOnAir = false
+		isGravityActive = false
 		coyoteTimer = coyoteTime
 		jumpCount = jumps
 		wasHooking = false
 	if not is_on_floor():
+		isOnAir = true
+		isGravityActive = true
 		if coyoteTimer > 0:
 			coyoteTimer -= 1
 
-	if velocity.y > 0:
-		appliedGravity = gravityScale * 1.3
-	else:
-		appliedGravity = gravityScale
+	if isGravityActive:
+		if velocity.y > 0:
+			appliedGravity = gravityScale * 1.3
+		else:
+			appliedGravity = gravityScale
 
 	if isGravityActive:
 		if velocity.y < maxFallSpeed:
@@ -259,6 +256,8 @@ func jump_handling():
 		jumpBufferTimer = jumpBufferTime
 	elif jumpTap and jumpCount > 0:
 		jump()
+		if is_on_floor() or is_on_wall():
+			anim.play("jump")
 
 	if jumpBufferTimer > 0:
 		jumpBufferTimer -= 1
@@ -272,6 +271,25 @@ func jump_handling():
 		velocity.y = -450
 	elif velocity.y > 600:
 		velocity.y = 600
+
+func running_handling():
+	if !runHold and is_on_floor() or is_on_wall():
+		maxSpeed = maxSpeedLock / 2
+		emit_signal("max_velocity_reached", false)
+
+	elif is_on_floor():
+		wasRunning = true
+		maxSpeed = lerpf(maxSpeed, maxSpeedLock, 0.7)
+		emit_signal("max_velocity_reached", true)
+		if runRelease:
+			wasRunning = false
+
+	if runRelease and !is_on_floor():
+		wasRunning = false
+	
+	if !is_on_floor() and !is_on_wall() and wasWallJumping and wasHooking:
+		maxSpeed = maxSpeedLock
+		emit_signal("max_velocity_reached", true)
 
 func wall_jump(delta):
 	if !is_on_wall(): return
@@ -373,6 +391,13 @@ func handlingAttack():
 	isAttacking = true
 	comboRequested = false
 	
+	if facingRight:
+		$hitbox/Right.disabled = false
+		$hitbox/Left.disabled = true
+	else:
+		$hitbox/Right.disabled = true
+		$hitbox/Left.disabled = false
+	
 	#INFO Ataca parado
 	if abs(velocity.x) < 50:
 		$AnimatedSprite2D.play("attack1")
@@ -388,5 +413,23 @@ func handlingAttack():
 		if comboRequested and $Timers/attackcombo.time_left > 0:
 			$AnimatedSprite2D.play("attack2")
 			await $AnimatedSprite2D.animation_finished
+	
+	$hitbox/Right.disabled = true
+	$hitbox/Left.disabled = true
 
+	
 	isAttacking = false
+
+func handlingDamage():
+	if hp < 0:
+		hp = 0
+	
+	if hp == 0:
+		isDead = true
+		emit_signal("death")
+		get_tree().change_scene_to_file("res://assets/gameover/gameover.tscn")
+		
+
+func _on_inimigo_dealing_damage(damage: Variant) -> void:
+	hp -= damage
+	print(hp)

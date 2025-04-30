@@ -18,11 +18,15 @@ config/icon="uid://da6ihc1rawpw1"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [global_group]
 
 Player=""
+Flag=""
+Enemy=""
+PlayerAttack=""
 
 [input]
 

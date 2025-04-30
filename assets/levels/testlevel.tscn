@@ -1,13 +1,17 @@
-[gd_scene load_steps=18 format=4 uid="uid://d3vv4cyfbhopx"]
+[gd_scene load_steps=23 format=4 uid="uid://d3vv4cyfbhopx"]
 
 [ext_resource type="PackedScene" uid="uid://dvgts4rvi1s15" path="res://assets/stuffs/box.tscn" id="1_f2ovr"]
 [ext_resource type="Texture2D" uid="uid://cfw4587vjjkmd" path="res://assets/visual/sprites/Tilesets/Terrain/Terrain (16x16).png" id="1_f7che"]
+[ext_resource type="Script" path="res://assets/levels/testlevel.gd" id="1_ot6a7"]
 [ext_resource type="PackedScene" uid="uid://b75fn5nj0xbo6" path="res://assets/stuffs/cherry.tscn" id="2_1x0l4"]
 [ext_resource type="PackedScene" uid="uid://dxuw7emdcithi" path="res://assets/entities/Player/player.tscn" id="2_cvbjm"]
 [ext_resource type="Script" uid="uid://bjysknj35prw7" path="res://assets/camera/camera.gd" id="3_f2ovr"]
 [ext_resource type="Script" uid="uid://de0ue7b5nh8v" path="res://assets/levels/00/mouse_position.gd" id="4_cvbjm"]
 [ext_resource type="PackedScene" uid="uid://bm5qxw2cpfx3y" path="res://assets/entities/Platforms/platform.tscn" id="4_orrwl"]
 [ext_resource type="Script" uid="uid://dolk1ghkmgd68" path="res://assets/entities/Platforms/platform.gd" id="5_xqu7u"]
+[ext_resource type="PackedScene" uid="uid://bw8gk5v0wtv3w" path="res://assets/stuffs/checkpoint.tscn" id="6_aoqmy"]
+[ext_resource type="Script" path="res://assets/stuffs/handlingcheckpoint.gd" id="8_b4jf1"]
+[ext_resource type="PackedScene" uid="uid://nmdjdg0h4s8p" path="res://assets/entities/Enemy/inimigo.tscn" id="9_tfgd3"]
 [ext_resource type="Texture2D" uid="uid://cdv7xafepxeb2" path="res://assets/visual/sprites/Tilesets/Background/Green.png" id="9_x4tki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kl7x"]
@@ -429,7 +433,7 @@ texture = ExtResource("1_f7che")
 
 [sub_resource type="TileSet" id="TileSet_7ixgg"]
 physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_mask = 7
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.700127, 0.077977, 0.284549, 1)
@@ -513,7 +517,12 @@ _data = {
 &"default": SubResource("Animation_x4tki")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfgd3"]
+size = Vector2(128, 16)
+
 [node name="Testlevel" type="Node2D"]
+position = Vector2(0, -64)
+script = ExtResource("1_ot6a7")
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -583,7 +592,7 @@ tile_map_data = PackedByteArray("AAArACMAAAABAAkAAAArACIAAAAEAAkAAAArACEAAAAAAAk
 tile_set = SubResource("TileSet_7ixgg")
 
 [node name="Marker2D" type="Marker2D" parent="Level"]
-position = Vector2(510, 450)
+position = Vector2(547, 444)
 
 [node name="Platforms" type="Node2D" parent="Level"]
 
@@ -607,8 +616,29 @@ libraries = {
 }
 autoplay = "default"
 
+[node name="Flags" type="Node2D" parent="Level"]
+
+[node name="Checkpoint" parent="Level/Flags" instance=ExtResource("6_aoqmy")]
+position = Vector2(2600, 944)
+script = ExtResource("8_b4jf1")
+
+[node name="Enemies" type="Node2D" parent="Level"]
+
+[node name="Inimigo" parent="Level/Enemies" instance=ExtResource("9_tfgd3")]
+position = Vector2(2266, 688)
+
+[node name="Cautious" type="Node2D" parent="Level"]
+
+[node name="01" type="Area2D" parent="Level/Cautious"]
+position = Vector2(1776, 856)
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Level/Cautious/01"]
+shape = SubResource("RectangleShape2D_tfgd3")
+debug_color = Color(0.933615, 0.17746, 0.474389, 0.42)
+
 [node name="Player" parent="." instance=ExtResource("2_cvbjm")]
-position = Vector2(516, 453)
+position = Vector2(543, 448)
 collision_mask = 6
 gravityScale = 15.0
 jumpStrength = 20.0
@@ -616,13 +646,12 @@ jumpBufferTime = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("Player")]
 texture_filter = 1
-position = Vector2(516, 457)
+position = Vector2(543, 448)
 zoom = Vector2(3, 3)
 process_callback = 0
 limit_left = 250
 limit_smoothed = true
 position_smoothing_enabled = true
-editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_f2ovr")
 Player = NodePath("../Player")
@@ -630,20 +659,26 @@ Player = NodePath("../Player")
 [node name="MousePosition" type="Marker2D" parent="."]
 script = ExtResource("4_cvbjm")
 
-[node name="ParallaxBG" type="ParallaxBackground" parent="."]
-scroll_limit_end = Vector2(5000, 3000)
+[node name="ParallaxBG" type="Node2D" parent="."]
+z_index = -6
+position = Vector2(384, 448)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBG"]
-motion_mirroring = Vector2(640, 640)
+[node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBG"]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(128, 128)
+repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBG/ParallaxLayer"]
-texture_filter = 4
-scale = Vector2(10, 10)
+texture_filter = 6
+scale = Vector2(2, 2)
 texture = ExtResource("9_x4tki")
 centered = false
 
 [connection signal="break_crate" from="Level/Items/Box" to="Player" method="_on_box_break_crate"]
 [connection signal="get_cherry" from="Level/Items/Cherries/Cherry" to="Player" method="_on_cherry_get_cherry"]
+[connection signal="dealing_damage" from="Level/Enemies/Inimigo" to="Player" method="_on_inimigo_dealing_damage"]
+[connection signal="body_entered" from="Level/Cautious/01" to="." method="_on__body_entered"]
+[connection signal="death" from="Player" to="Level/Flags/Checkpoint" method="_on_player_death"]
 [connection signal="facing_direction_changed" from="Player" to="Camera2D" method="_on_player_facing_direction_changed"]
 [connection signal="max_velocity_reached" from="Player" to="Camera2D" method="_on_player_max_velocity_reached"]
 [connection signal="send_mouse_pos" from="Camera2D" to="Player" method="_on_camera_2d_send_mouse_pos"]

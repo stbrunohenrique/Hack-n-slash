@@ -353,7 +353,8 @@ animation = &"attackwalk"
 
 [node name="Chain" parent="." instance=ExtResource("7_dadyc")]
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="." groups=["PlayerAttack"]]
+collision_mask = 5
 
 [node name="Right" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(16, 0)

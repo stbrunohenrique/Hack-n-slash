@@ -89,6 +89,7 @@ physics_material_override = SubResource("PhysicsMaterial_mtbj0")
 script = ExtResource("1_eydph")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_c6x10")
 animation = &"idle"
 frame_progress = 0.408136
