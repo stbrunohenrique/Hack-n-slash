@@ -1,0 +1,25 @@
+# Ignora a pasta oculta da Godot com dados do editor local
+.godot/
+
+# Cache de shaders
+*.vulkan.cache
+
+# Arquivos de cache e estado do editor
+*.cfg
+*.import
+*.tmp
+*.uid
+
+# Arquivos temporários de backup
+*.bak
+*.old
+*.orig
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Diretório de build/exportação (caso use export templates)
+export/
+build/
