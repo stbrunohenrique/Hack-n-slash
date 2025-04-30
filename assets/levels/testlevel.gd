@@ -1,5 +1,6 @@
 extends Node2D
 
+var isDamaging: bool = false
 
 
 func _ready() -> void:
@@ -8,8 +9,14 @@ func _ready() -> void:
 		$ParallaxBG.visible = false
 
 func _physics_process(delta: float) -> void:
-	pass
+	if isDamaging:
+		pass
 
 func _on__body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		$Player.hp -= 1
+		isDamaging = true
+
+
+func _on__body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		isDamaging = false

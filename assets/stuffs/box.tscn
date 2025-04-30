@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvgts4rvi1s15"]
+[gd_scene load_steps=16 format=3 uid="uid://dvgts4rvi1s15"]
 
 [ext_resource type="Script" uid="uid://c14hojqk25eij" path="res://assets/stuffs/box.gd" id="1_eydph"]
 [ext_resource type="Texture2D" uid="uid://ctrwlbkl13b4v" path="res://assets/visual/sprites/Items/Boxes/Box1/Break.png" id="1_mtbj0"]
@@ -81,6 +81,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvfwe"]
 size = Vector2(18, 18)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_eydph"]
+radius = 15.0333
+
 [node name="Box" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 5
@@ -96,3 +99,11 @@ frame_progress = 0.408136
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wvfwe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_eydph")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

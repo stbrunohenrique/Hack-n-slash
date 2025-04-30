@@ -151,6 +151,7 @@ func _physics_process(delta: float) -> void:
 	hook_shot()
 	emit_signal("current_position", global_position)
 	handlingDamage()
+	getCherries()
 
 func handlingAnimation():
 	#INFO Handling animation scale
@@ -401,21 +402,24 @@ func handlingAttack():
 	#INFO Ataca parado
 	if abs(velocity.x) < 50:
 		$AnimatedSprite2D.play("attack1")
+		emit_signal("hit")
 		await $AnimatedSprite2D.animation_finished
 		if comboRequested and $Timers/attackcombo.time_left > 0:
 			$AnimatedSprite2D.play("attack2")
+			emit_signal("hit")
 			await $AnimatedSprite2D.animation_finished
+			emit_signal("hit")
 
 	#INFO Ataca andando
 	else:
 		$AnimatedSprite2D.play("attackwalk")
+		emit_signal("hit")
 		await $AnimatedSprite2D.animation_finished
 		if comboRequested and $Timers/attackcombo.time_left > 0:
 			$AnimatedSprite2D.play("attack2")
+			emit_signal("hit")
 			await $AnimatedSprite2D.animation_finished
-	
-	$hitbox/Right.disabled = true
-	$hitbox/Left.disabled = true
+			emit_signal("hit")
 
 	
 	isAttacking = false
@@ -433,3 +437,11 @@ func handlingDamage():
 func _on_inimigo_dealing_damage(damage: Variant) -> void:
 	hp -= damage
 	print(hp)
+
+func getCherries():
+	pass
+
+func _on_collectbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Cherries"):
+		cherryCount += 1
+		area.get_parent().queue_free()

@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+Sprite2D
+Label
+Control
+CanvasLayer
+Timer
+Node2D
+RayCast2D
+DirectionalLight2D
+CanvasModulate
+SubViewport
+SubViewportContainer
