@@ -14,11 +14,15 @@ config/name="Platform hack and slash"
 config/tags=PackedStringArray("2d", "platformer")
 run/main_scene="uid://dgklacjryx61c"
 config/features=PackedStringArray("4.4", "Mobile")
+run/max_fps=120
 config/icon="uid://da6ihc1rawpw1"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/size/resizable=false
+window/size/extend_to_title=true
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [global_group]
 

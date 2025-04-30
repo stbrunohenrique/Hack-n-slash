@@ -149,7 +149,6 @@ func _physics_process(delta: float) -> void:
 	hook_shot()
 	emit_signal("current_position", global_position)
 	handlingDamage()
-	getCherries()
 
 func handlingAnimation():
 	#INFO Handling animation scale
@@ -428,9 +427,6 @@ func handlingDamage():
 func _on_inimigo_dealing_damage(damage: Variant) -> void:
 	hp -= damage
 	print(hp)
-
-func getCherries():
-	pass
 
 func _on_collectbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Cherries"):
