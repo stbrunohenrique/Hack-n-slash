@@ -8,7 +8,3 @@ res://assets/entities/Enemy/inimigo.tscn
 res://assets/levels/00/main.tscn
 res://assets/stuffs/checkpoint.tscn
 res://assets/entities/Platforms/platform.tscn
-res://assets/entities/Player/player.gd
-res://assets/stuffs/box.gd
-res://assets/ui/hud.gd
-res://assets/stuffs/cherry.gd

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cni4epepocb4l"]
 
 [ext_resource type="PackedScene" uid="uid://d3vv4cyfbhopx" path="res://assets/levels/testlevel.tscn" id="1_0b3hq"]
-[ext_resource type="Shader" uid="uid://ns2o2waqvkfs" path="res://assets/levels/00/subviewshader.gdshader" id="1_vg76f"]
+[ext_resource type="Shader" uid="uid://dr7u620nns1oh" path="res://assets/levels/00/subviewshader.gdshader" id="1_vg76f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xd5g4"]
 shader = ExtResource("1_vg76f")
